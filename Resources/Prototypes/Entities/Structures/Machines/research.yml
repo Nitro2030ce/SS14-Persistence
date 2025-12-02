@@ -29,6 +29,9 @@
     - Arsenal
     - Experimental
     - CivilianServices
+    - Biochemical
+  - type: FHResearchTree # Far Horizons
+    tree: ResearchTreeNT
   - type: ApcPowerReceiver
     powerLoad: 200
   - type: ExtensionCableReceiver
