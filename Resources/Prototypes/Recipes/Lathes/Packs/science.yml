@@ -86,6 +86,7 @@
   - RoboticsConsoleCircuitboard
   - ResearchComputerCircuitboard
   - ResearchAndDevelopmentServerMachineCircuitboard
+  - ResearchTreeMapElectronics #FH
 
 - type: latheRecipePack
   id: CameraBoards
