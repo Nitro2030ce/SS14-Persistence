@@ -41,6 +41,8 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
     private EntityQuery<SolutionContainerManagerComponent> _solutionQuery;
     private static readonly ProtoId<MetabolismGroupPrototype> Gas = "Gas";
 
+    private HashSet<Entity<MetabolizerComponent>> _cachedMetabolizers = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -49,9 +51,11 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
         _solutionQuery = GetEntityQuery<SolutionContainerManagerComponent>();
 
         SubscribeLocalEvent<MetabolizerComponent, ComponentInit>(OnMetabolizerInit);
+        SubscribeLocalEvent<MetabolizerComponent, ComponentShutdown>(OnMetabolizerShutdown);
         SubscribeLocalEvent<MetabolizerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MetabolizerComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
     }
+
     private void OnMapInit(Entity<MetabolizerComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextUpdate = _gameTiming.CurTime + ent.Comp.AdjustedUpdateInterval;
@@ -68,22 +72,31 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
         {
             _solutionContainerSystem.EnsureSolution(body, entity.Comp.SolutionName, out _);
         }
-
-        Timer.Spawn((int)(entity.Comp.NextUpdate - _gameTiming.CurTime).TotalMilliseconds, () => TimerFired(entity));
+        _cachedMetabolizers.Add(entity);
     }
 
-    private void TimerFired(Entity<MetabolizerComponent> ent)
+    private void OnMetabolizerShutdown(Entity<MetabolizerComponent> ent, ref ComponentShutdown args)
     {
-        if (TerminatingOrDeleted(ent))
-            return;
-
-        ent.Comp.NextUpdate += ent.Comp.AdjustedUpdateInterval;
-        TryMetabolize(ent);
-
-        var ms = (int)(ent.Comp.NextUpdate - _gameTiming.CurTime).TotalMilliseconds;
-        DebugTools.Assert(ms >= ent.Comp.AdjustedUpdateInterval.TotalMilliseconds / 2);
-        Timer.Spawn(ms, () => TimerFired(ent));
+        _cachedMetabolizers.Remove(ent);
     }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        foreach (var (uid, metab) in _cachedMetabolizers)
+        {
+            if (IsPaused(uid)) continue;
+            // Only update as frequently as it should
+            if (_gameTiming.CurTime < metab.NextUpdate)
+                continue;
+
+            metab.NextUpdate += metab.AdjustedUpdateInterval;
+            TryMetabolize((uid, metab));
+        }
+    }
+
+
 
     private void OnApplyMetabolicMultiplier(Entity<MetabolizerComponent> ent, ref ApplyMetabolicMultiplierEvent args)
     {
