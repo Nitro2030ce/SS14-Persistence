@@ -97,6 +97,26 @@
   materials:
     Cloth: 200
 
+- type: latheRecipe
+  abstract: true
+  id: BaseBeltsClothingRecipe
+  categories:
+  - Belts
+  completetime: 2
+  materials:
+    Cloth: 500
+    Durathread: 200
+
+- type: latheRecipe
+  abstract: true
+  id: BaseGlassesClothingRecipe
+  categories:
+  - Glasses
+  completetime: 2
+  materials:
+    Durathread: 100
+    Glass: 200
+
 ## Recipes
 
 # Jumpsuits/skirts
@@ -2188,4 +2208,89 @@
   parent: BaseCoatRecipe
   id: ClothingOuterVest
   result: ClothingOuterVest
+
+- type: latheRecipe
+  parent: BaseBeltsClothingRecipe
+  id: ClothingBeltChampion
+  result: ClothingBeltChampion
+  components:
+  materials:
+    Cloth: 500
+    Durathread: 200
+    Gold: 500
+
+- type: latheRecipe
+  parent: BaseBeltsClothingRecipe
+  id: ClothingBeltSuspendersRed
+  result: ClothingBeltSuspendersRed
+
+- type: latheRecipe
+  parent: BaseBeltsClothingRecipe
+  id: ClothingBeltSuspendersBlack
+  result: ClothingBeltSuspendersBlack
+
+- type: latheRecipe
+  parent: BaseBeltsClothingRecipe
+  id: ClothingBeltJanitor
+  result: ClothingBeltJanitor
+
+- type: latheRecipe
+  parent: BaseBeltsClothingRecipe
+  id: ClothingBeltPlant
+  result: ClothingBeltPlant
+
+- type: latheRecipe
+  parent: BaseBeltsClothingRecipe
+  id: ClothingBeltChef
+  result: ClothingBeltChef
+
+- type: latheRecipe
+  parent: BaseBeltsClothingRecipe
+  id: ClothingBeltMedical
+  result: ClothingBeltMedical
+
+- type: latheRecipe
+  parent: BaseBeltsClothingRecipe
+  id: ClothingBeltUtility
+  result: ClothingBeltUtility
+
+- type: latheRecipe
+  parent: BaseGlassesClothingRecipe
+  id: ClothingEyesGlasses
+  result: ClothingEyesGlasses
+
+- type: latheRecipe
+  parent: BaseGlassesClothingRecipe
+  id: ClothingEyesGlassesJamjar
+  result: ClothingEyesGlassesJamjar
+
+- type: latheRecipe
+  parent: BaseGlassesClothingRecipe
+  id: ClothingEyesGlassesGar
+  result: ClothingEyesGlassesGar
+
+- type: latheRecipe
+  parent: BaseGlassesClothingRecipe
+  id: ClothingEyesGlassesGarOrange
+  result: ClothingEyesGlassesGarOrange
+
+- type: latheRecipe
+  parent: BaseGlassesClothingRecipe
+  id: ClothingEyesGlassesGarGiga
+  result: ClothingEyesGlassesGarGiga
+
+- type: latheRecipe
+  parent: BaseGlassesClothingRecipe
+  id: ClothingEyesGlassesJensen
+  result: ClothingEyesGlassesJensen
+
+- type: latheRecipe
+  parent: BaseGlassesClothingRecipe
+  id: ClothingEyesGlassesOutlawGlasses
+  result: ClothingEyesGlassesOutlawGlasses
+
+- type: latheRecipe
+  parent: BaseGlassesClothingRecipe
+  id: ClothingEyesGlassesCheapSunglasses
+  result: ClothingEyesGlassesCheapSunglasses
 

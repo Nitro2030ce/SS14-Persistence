@@ -86,6 +86,17 @@
   - ClothingOuterVest
   - ClothingUniformJumpskirtJanimaid
   - ClothingUniformJumpskirtJanimaidmini
+  - ClothingBeltChampion
+  - ClothingBeltSuspendersRed
+  - ClothingBeltSuspendersBlack
+  - ClothingEyesGlassesGar
+  - ClothingEyesGlassesGarOrange
+  - ClothingEyesGlassesGarGiga
+  - ClothingEyesGlasses
+  - ClothingEyesGlassesJensen
+  - ClothingEyesGlassesJamjar
+  - ClothingEyesGlassesOutlawGlasses
+  - ClothingEyesGlassesCheapSunglasses
 
 - type: latheRecipePack
   id: ClothingAssortedOversuits
@@ -212,6 +223,7 @@
   - ClothingUniformJumpskirtSeniorEngineer
   - ClothingShoesBootsWork
   - ClothingOuterVestHazard
+  - ClothingBeltUtility
 
 - type: latheRecipePack
   id: ClothingMedical
@@ -236,6 +248,7 @@
   - ClothingUniformJumpsuitParamedic
   - ClothingUniformJumpskirtParamedic
   - ClothingHeadHatParamedicsoft
+  - ClothingBeltMedical
 
 - type: latheRecipePack
   id: ClothingScience
@@ -341,6 +354,9 @@
   - ClothingShoesChef
   - ClothingShoesClown
   - ClothingShoesJester
+  - ClothingBeltJanitor
+  - ClothingBeltPlant
+  - ClothingBeltChef
 
 - type: latheRecipePack
   id: WinterCoats

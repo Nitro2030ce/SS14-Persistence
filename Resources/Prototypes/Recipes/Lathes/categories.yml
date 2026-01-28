@@ -176,3 +176,11 @@
 - type: latheCategory
   id: Gloves
   name: lathe-category-gloves
+
+- type: latheCategory
+  id: Belts
+  name: lathe-category-belts
+
+- type: latheCategory
+  id: Glasses
+  name: lathe-category-glasses
