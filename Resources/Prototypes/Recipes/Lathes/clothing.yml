@@ -72,6 +72,15 @@
 
 - type: latheRecipe
   abstract: true
+  id: BaseShoesClothingRecipeCheap
+  categories:
+  - Shoes
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  abstract: true
   id: BaseShoesClothingRecipe
   categories:
   - Shoes
@@ -1909,8 +1918,9 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformGenericTacticalTurtleNeck
   result: ClothingUniformGenericTacticalTurtleNeck
-
+# Persistence14
 - type: latheRecipe
-  parent: BaseShoesClothingRecipe
+  parent: BaseShoesClothingRecipeCheap
   id: ClothingShoesBootsWork
   result: ClothingShoesBootsWork
+
