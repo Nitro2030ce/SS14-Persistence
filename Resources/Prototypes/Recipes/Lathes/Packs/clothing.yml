@@ -64,6 +64,25 @@
   - ClothingShoesColorRed
   - ClothingShoesColorYellow
   - ClothingShoesColorPurple
+  - ClothingHandsGlovesColorPurple
+  - ClothingHandsGlovesColorRed
+  - ClothingHandsGlovesColorBlue
+  - ClothingHandsGlovesColorTeal
+  - ClothingHandsGlovesColorBrown
+  - ClothingHandsGlovesColorGray
+  - ClothingHandsGlovesColorGreen
+  - ClothingHandsGlovesColorLightBrown
+  - ClothingHandsGlovesColorOrange
+  - ClothingHandsGlovesColorWhite
+  - ClothingHandsGlovesColorBlack
+  - ClothingHandsGlovesHop
+  - ClothingHandsGlovesLeather
+  - ClothingHandsGlovesPowerglove
+  - ClothingHandsGlovesRobohands
+  - ClothingHandsGlovesFingerless
+  - ClothingHandsGlovesFingerlessInsulated
+  - ClothingHandsGlovesMercFingerless
+  - ClothingHandsGlovesJanitor
 
 - type: latheRecipePack
   id: ClothingAssortedOversuits

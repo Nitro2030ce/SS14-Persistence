@@ -172,3 +172,7 @@
 - type: latheCategory
   id: Shoes
   name: lathe-category-shoes
+
+- type: latheCategory
+  id: Gloves
+  name: lathe-category-gloves

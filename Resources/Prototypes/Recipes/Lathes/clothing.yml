@@ -88,6 +88,15 @@
   materials:
     Durathread: 400
 
+- type: latheRecipe
+  abstract: true
+  id: BaseGlovesClothingRecipeCheap
+  categories:
+  - Gloves
+  completetime: 2
+  materials:
+    Cloth: 200
+
 ## Recipes
 
 # Jumpsuits/skirts
@@ -1918,7 +1927,8 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformGenericTacticalTurtleNeck
   result: ClothingUniformGenericTacticalTurtleNeck
-# Persistence14
+# Start of Persistence14 additions
+# Shoes
 - type: latheRecipe
   parent: BaseShoesClothingRecipeCheap
   id: ClothingShoesBootsWork
@@ -2058,4 +2068,99 @@
   parent: BaseShoesClothingRecipeCheap
   id: ClothingShoesColorPurple
   result: ClothingShoesColorPurple
+# Persi14 Gloves
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorPurple
+  result: ClothingHandsGlovesColorPurple
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorRed
+  result: ClothingHandsGlovesColorRed
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorBlue
+  result: ClothingHandsGlovesColorBlue
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorTeal
+  result: ClothingHandsGlovesColorTeal
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorBrown
+  result: ClothingHandsGlovesColorBrown
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorGray
+  result: ClothingHandsGlovesColorGray
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorGreen
+  result: ClothingHandsGlovesColorGreen
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorLightBrown
+  result: ClothingHandsGlovesColorLightBrown
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorOrange
+  result: ClothingHandsGlovesColorOrange
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorWhite
+  result: ClothingHandsGlovesColorWhite
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesColorBlack
+  result: ClothingHandsGlovesColorBlack
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesHop
+  result: ClothingHandsGlovesHop
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesLeather
+  result: ClothingHandsGlovesLeather
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesPowerglove
+  result: ClothingHandsGlovesPowerglove
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesRobohands
+  result: ClothingHandsGlovesRobohands
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesFingerless
+  result: ClothingHandsGlovesFingerless
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesFingerlessInsulated
+  result: ClothingHandsGlovesFingerlessInsulated
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesMercFingerless
+  result: ClothingHandsGlovesMercFingerless
+
+- type: latheRecipe
+  parent: BaseGlovesClothingRecipeCheap
+  id: ClothingHandsGlovesJanitor
+  result: ClothingHandsGlovesJanitor
 
