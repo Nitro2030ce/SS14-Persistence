@@ -51,9 +51,11 @@ public sealed partial class AtmosphereSystem
             tile.GridIndex = uid;
         }
 
+        //Check there are devices to pre-add to hashset
         if (component.AtmosDevicesOrder.Count == 0)
             return;
 
+        //Pre-load hashset with serialised atmos queue from save
         foreach (var deviceUid in component.AtmosDevicesOrder)
         {
             if (!TryComp(deviceUid, out AtmosDeviceComponent? deviceComp))
