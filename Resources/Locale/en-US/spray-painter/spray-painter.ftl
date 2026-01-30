@@ -165,6 +165,14 @@ spray-painter-style-wallcloset-yellow = Yellow
 
 spray-painter-style-walllocker-evac = Evac repair
 spray-painter-style-walllocker-medical = Medical
+spray-painter-style-walllocker-prisoner1 = Prisoner 1
+spray-painter-style-walllocker-prisoner2 = Prisoner 2
+spray-painter-style-walllocker-prisoner3 = Prisoner 3
+spray-painter-style-walllocker-prisoner4 = Prisoner 4
+spray-painter-style-walllocker-prisoner5 = Prisoner 5
+spray-painter-style-walllocker-prisoner6 = Prisoner 6
+spray-painter-style-walllocker-prisoner7 = Prisoner 7
+spray-painter-style-walllocker-prisoner8 = Prisoner 8
 
 # Crates
 spray-painter-style-cratesteel-basic = Basic
