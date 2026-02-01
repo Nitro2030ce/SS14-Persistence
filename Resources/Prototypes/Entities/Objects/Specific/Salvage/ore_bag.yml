@@ -29,6 +29,7 @@
     dumpWhitelist:
       tags:
       - OreBox
+      - OreProcessor
 
 - type: entity
   parent: OreBag

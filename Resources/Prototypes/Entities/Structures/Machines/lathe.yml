@@ -611,6 +611,10 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+    - type: DumpTarget
+    - type: Tag
+      tags:
+        - OreProcessor
 
 - type: entity
   parent: BaseLathe
@@ -647,6 +651,10 @@
       - OreSmelting
       - RGlassSmelting
       - AdvancedSmelting
+    - type: DumpTarget
+    - type: Tag
+      tags:
+        - OreProcessor
 
 - type: entity
   parent: BaseLathe
