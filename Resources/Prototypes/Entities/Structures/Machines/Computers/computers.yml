@@ -123,6 +123,8 @@
   - type: ShuttleConsole
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
   - type: UserInterface
     interfaces:
         enum.ShuttleConsoleUiKey.Key:
