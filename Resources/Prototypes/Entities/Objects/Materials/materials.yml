@@ -624,7 +624,7 @@
         maxVol: 10
         reagents:
         - ReagentId: Bananium
-          Quantity: 4
+          Quantity: 10
   - type: Extractable
     grindableSolutionName: food
     juiceSolution:
