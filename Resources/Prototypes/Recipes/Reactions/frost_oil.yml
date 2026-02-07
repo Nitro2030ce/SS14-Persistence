@@ -174,7 +174,7 @@
 - type: reaction
   id: SolidifyPhoron
   impact: Low
-  priority: 4
+  priority: 3
   quantized: true
   reactants:
     Plasma:
