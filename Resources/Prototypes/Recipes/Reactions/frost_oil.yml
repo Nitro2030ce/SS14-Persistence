@@ -25,13 +25,39 @@
     entity: IngotSilver1
 
 - type: reaction
+  id: SolidifyCopper
+  impact: Low
+  quantized: true
+  reactants:
+    Copper:
+      amount: 10
+    FrostOil:
+      amount: 5
+  effects:
+  - !type:SpawnEntity
+    entity: IngotCopper1
+
+- type: reaction
+  id: SolidifyTin
+  impact: Low
+  quantized: true
+  reactants:
+    Tin:
+      amount: 10
+    FrostOil:
+      amount: 5
+  effects:
+  - !type:SpawnEntity
+    entity: IngotTin1
+
+- type: reaction
   id: SolidifyPlasma
   impact: Low
   quantized: true
   reactants:
     Plasma:
       amount: 10
-    FrostOil:
+    Fresium:
       amount: 5
   effects:
   - !type:SpawnEntity
@@ -96,7 +122,7 @@
       amount: 9
     Carbon:
       amount: 1
-    FrostOil:
+    Fresium:
       amount: 5
   effects:
   - !type:SpawnEntity
@@ -109,7 +135,7 @@
   reactants:
     Titanium:
       amount: 10
-    FrostOil:
+    Fresium:
       amount: 5
   effects:
   - !type:SpawnEntity
@@ -151,7 +177,7 @@
       amount: 10
     Plasma:
       amount: 10
-    FrostOil:
+    Fresium:
       amount: 5
   effects:
   - !type:SpawnEntity
@@ -165,7 +191,7 @@
   reactants:
     Bananium:
       amount: 10
-    FrostOil:
+    Fresium:
       amount: 5
   effects:
   - !type:SpawnEntity
@@ -183,7 +209,7 @@
       amount: 20
     Titanium:
       amount: 10
-    FrostOil:
+    Fresium:
       amount: 5
   effects:
   - !type:SpawnEntity
@@ -203,7 +229,7 @@
       amount: 10
     Titanium:
       amount: 5
-    FrostOil:
+    Fresium:
       amount: 5
   effects:
   - !type:SpawnEntity
@@ -219,7 +245,7 @@
       amount: 10
     Uranium:
       amount: 10
-    FrostOil:
+    Fresium:
       amount: 5
   effects:
   - !type:SpawnEntity
@@ -265,7 +291,7 @@
       amount: 8
     Radium:
       amount: 2
-    FrostOil:
+    Fresium:
       amount: 5
   effects:
   - !type:SpawnEntity
