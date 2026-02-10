@@ -7,18 +7,18 @@ namespace Content.Server.DeviceLinking.Components
     public sealed partial class DoorSignalControlComponent : Component
     {
         [DataField("openPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-        public string OpenPort = "Open";
+        public string OpenSink = "Open";
 
         [DataField("closePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-        public string ClosePort = "Close";
+        public string CloseSink = "Close";
 
         [DataField("togglePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-        public string TogglePort = "Toggle";
+        public string ToggleSink = "Toggle";
 
         [DataField("boltPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-        public string InBolt = "DoorBolt";
+        public string BoltSink = "DoorBolt";
 
         [DataField("onOpenPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-        public string OutOpen = "DoorStatus";
+        public string StatusSource = "DoorStatus";
     }
 }
