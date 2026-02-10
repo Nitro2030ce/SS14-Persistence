@@ -67,6 +67,17 @@ namespace Content.Server.DeviceLinking.Systems
                             break;
                     }
                     break;
+                case var port when port == component.DirectDriveSink:
+                    switch (state)
+                    {
+                        case SignalState.High:
+                            _doorSystem.DirectDriveOpen(uid, door, null, false, true);
+                            break;
+                        case SignalState.Low:
+                            _doorSystem.DirectDriveClose(uid, door, null, false);
+                            break;
+                    }
+                    break;
             }
         }
 
@@ -80,7 +91,8 @@ namespace Content.Server.DeviceLinking.Systems
             else if (args.State == DoorState.Open
                   || args.State == DoorState.Opening
                   || args.State == DoorState.Closing
-                  || args.State == DoorState.Emagging)
+                  || args.State == DoorState.Emagging
+                  || args.State == DoorState.boltingOpen)
             {
                 // say the door is open whenever it would be letting air pass
                 _signalSystem.SendSignal(uid, door.StatusSource, true);
