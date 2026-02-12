@@ -11,7 +11,7 @@
     - type: Item
       storedRotation: -90
     - type: StaticPrice
-      price: 100
+      price: 20
     - type: PhysicalComposition
       materialComposition:
         Glass: 230
