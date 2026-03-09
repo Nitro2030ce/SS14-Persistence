@@ -30,6 +30,18 @@
       distro: '#0055cc'
       air: '#03fcd3'
       mix: '#947507'
+      carbon dioxide: '#575151'
+      water vapor: '#E0E0E0'
+      ammonia: '#FFEB6E'
+      chlorine: '#727A11'
+      flourine: '#BDBF9D'
+      chlorine trifluoride: '#74B505'
+      plasma: '#E600E2'
+      tritium: '#00E646'
+      frezon: '#9CFFFF'
+      hydrogen: '#30648C'
+      methane: '#3D1215'
+      nitrous oxide: '#9C1728'
   - type: StaticPrice
     price: 40
   - type: LimitedCharges
