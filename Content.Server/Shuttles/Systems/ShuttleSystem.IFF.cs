@@ -13,7 +13,6 @@ public sealed partial class ShuttleSystem
     {
         SubscribeLocalEvent<IFFConsoleComponent, AnchorStateChangedEvent>(OnIFFConsoleAnchor);
         SubscribeLocalEvent<IFFConsoleComponent, IFFShowIFFMessage>(OnIFFShow);
-        SubscribeLocalEvent<IFFConsoleComponent, IFFShowVesselMessage>(OnIFFShowVessel);
         SubscribeLocalEvent<IFFConsoleComponent, IFFSetColorMessage>(OnIFFSetColor);
         SubscribeLocalEvent<IFFConsoleComponent, IFFSetDesignationMessage>(OnIFFSetDesignation);
         SubscribeLocalEvent<IFFConsoleComponent, MapInitEvent>(OnInitIFFConsole);

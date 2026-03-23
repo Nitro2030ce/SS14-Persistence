@@ -95,7 +95,7 @@ namespace Content.Server.Atmos.Reactions
                 temperature = mixture.Temperature;
                 if (temperature > Atmospherics.FireMinimumTemperatureToExist)
                 {
-                    atmosphereSystem.HotspotExpose(location, temperature, mixture.Volume, fuelGas: Gas.Hydrogen);
+                    atmosphereSystem.HotspotExpose(location, temperature, mixture.Volume);
                 }
             }
 

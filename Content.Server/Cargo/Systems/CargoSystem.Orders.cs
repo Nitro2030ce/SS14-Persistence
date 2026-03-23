@@ -353,7 +353,7 @@ namespace Content.Server.Cargo.Systems
                 }
 
                 // Invalid order
-                if (!_protoMan.HasIndex<EntityPrototype>(order.ProductId))
+                if (!_protoMan.HasIndex<EntityPrototype>(order.Product))
                 {
                     ConsolePopup(args.Actor, Loc.GetString("cargo-console-invalid-product"));
                     PlayDenySound(uid, component);
@@ -380,8 +380,9 @@ namespace Content.Server.Cargo.Systems
                     ConsolePopup(args.Actor, Loc.GetString("cargo-console-snip-snip"));
                     PlayDenySound(uid, component);
                 }
-
-                var cost = order.Price * order.OrderQuantity;
+                if (!_protoMan.Resolve(order.Product, out var product))
+                    return;
+                var cost = product.Cost * order.OrderQuantity;
                 var taxRate = order.Tax;
                 var taxPaid = (int)Math.Round((float)cost * ((float)taxRate / 100f));
                 cost += taxPaid;
@@ -439,7 +440,7 @@ namespace Content.Server.Cargo.Systems
                 // Log order approval
                 _adminLogger.Add(LogType.Action,
                     LogImpact.Low,
-                    $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] on account {order.Account} with balance at {accountBalance}");
+                    $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.Product}, requester:{order.Requester}, reason:{order.Reason}] on account {order.Account} with balance at {accountBalance}");
 
                 orderDatabase.Orders[component.Account].Remove(order);
                 UpdateOrders(station.Value);
@@ -464,8 +465,9 @@ namespace Content.Server.Cargo.Systems
                 {
                     return;
                 }
-
-                var cost = order.Price * order.OrderQuantity;
+                if(!_protoMan.Resolve(order.Product, out var product))
+                    return;
+                var cost = product.Cost * order.OrderQuantity;
                 if (!_accessReaderSystem.IsAllowed(player, uid) || !_accessReaderSystem.CanSpend(player, uid, null, cost))
                 {
                     ConsolePopup(args.Actor, "Insufficent Spending Limit");
@@ -473,7 +475,7 @@ namespace Content.Server.Cargo.Systems
                     return;
                 }
                 // Invalid order
-                if (!_protoMan.HasIndex<EntityPrototype>(order.ProductId))
+                if (!_protoMan.HasIndex<EntityPrototype>(order.Product))
                 {
                     ConsolePopup(args.Actor, Loc.GetString("cargo-console-invalid-product"));
                     PlayDenySound(uid, component);
@@ -551,7 +553,7 @@ namespace Content.Server.Cargo.Systems
                     order.SetApproverData(tryGetIdentityShortInfoEvent.Title);
 
                     var message = Loc.GetString("cargo-console-unlock-approved-order-broadcast",
-                        ("productName", Loc.GetString(order.ProductName)),
+                        ("productName", Loc.GetString(product.Name)),
                         ("orderAmount", order.OrderQuantity),
                         ("approver", order.Approver ?? string.Empty),
                         ("cost", cost));
@@ -565,7 +567,7 @@ namespace Content.Server.Cargo.Systems
                 // Log order approval
                 _adminLogger.Add(LogType.Action,
                     LogImpact.Low,
-                    $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] on account {order.Account} with balance at {accountBalance}");
+                    $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.Product}, requester:{order.Requester}, reason:{order.Reason}] on account {order.Account} with balance at {accountBalance}");
 
                 orderDatabase.Orders[component.Account].Remove(order);
                 UpdateBankAccount((station.Value, bank), -cost, order.Account);
@@ -857,7 +859,8 @@ namespace Content.Server.Cargo.Systems
 
         private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id, ProtoId<CargoAccountPrototype> account)
         {
-            return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason ,account);
+
+            return new CargoOrderData(id, cargoProduct, args.Amount, args.Requester, args.Reason, account);
         }
 
         public int GetOutstandingOrderCount(Entity<StationCargoOrderDatabaseComponent> station, ProtoId<CargoAccountPrototype> account)

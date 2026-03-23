@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Client.Humanoid;
-using Content.Shared._NF.Bank.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -35,48 +34,19 @@ public sealed partial class CharacterPickerButton : ContainerButton
         bool isSelected)
     {
         RobustXamlLoader.Load(this);
-
-
-        _entManager = entityManager;
         AddStyleClass(StyleClassButton);
         ToggleMode = true;
         Group = group;
-        var description = "Empty Slot";
-        if (profile != null)
+        var name = "Empty Slot";
+        if(profile != null)
         {
-            description = profile.Name;
-            var query = IoCManager.Resolve<IEntityManager>().AllEntityQueryEnumerator<MoneyAccountsComponent>();
-            var mone = 0;
-            while (query.MoveNext(out var uid, out var grid))
-            {
-                grid.TryGetBalance(profile.Name, out mone);
-            }
-            if (profile is not HumanoidCharacterProfile humanoid)
-            {
-                _previewDummy = entityManager.SpawnEntity(prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
-            }
-            else
-            {
-                _previewDummy = UserInterfaceManager.GetUIController<LobbyUIController>()
-                    .LoadProfileEntity(humanoid, null, true);
-
-                var highPriorityJob = humanoid.JobPriorities.SingleOrDefault(p => p.Value == JobPriority.High).Key;
-                if (highPriorityJob != default)
-                {
-                    var jobName = prototypeManager.Index(highPriorityJob).LocalizedName;
-                    description = $"{description}\n{jobName}";
-
-                }
-                description += $"\n${mone}";
-            }
+            name = profile.Name;
+            View.LoadPreview(profile);
         }
-        else
-        {
-
-        }
+        var description = name;
 
         Pressed = isSelected;
-        DeleteButton.Visible = !isSelected && profile != null;
+        DeleteButton.Visible = !isSelected;
 
         DescriptionLabel.Text = description;
 

@@ -90,9 +90,9 @@ namespace Content.Client.Lobby.UI
             var selectedSlot = _preferencesManager.Preferences?.SelectedCharacterIndex;
             for (int i = 0; i < _preferencesManager.Settings!.MaxCharacterSlots; i++)
             {
-                _preferencesManager.Preferences!.Characters.TryGetValue(i, out ICharacterProfile? characterProfile);
-                var characterPickerButton = new CharacterPickerButton(_entManager,
-                    _protomanager,
+                _preferencesManager.Preferences!.Characters.TryGetValue(i, out HumanoidCharacterProfile? characterProfile);
+                var characterPickerButton = new CharacterPickerButton(_protomanager,
+                    _playerManager,
                     characterButtonsGroup,
                     characterProfile,
                     i == selectedSlot);

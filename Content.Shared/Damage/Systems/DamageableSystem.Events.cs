@@ -129,14 +129,14 @@ public sealed partial class DamageableSystem
     }
     private void OnMapSave(BeforeSerializationEvent ev)
     {
-        var query = EntityQueryEnumerator<DamageableComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            comp.DamageDictCopy = new();
-            foreach (var kv in comp.Damage.DamageDict)
-                if (kv.Value != default)
-                    comp.DamageDictCopy[kv.Key] = comp.Damage.DamageDict[kv.Key];
-        }
+        //var query = EntityQueryEnumerator<DamageableComponent>();
+        //while (query.MoveNext(out var uid, out var comp))
+        //{
+        //    comp.DamageDictCopy = new();
+        //    foreach (var kv in comp.Damage.DamageDict)
+        //        if (kv.Value != default)
+        //            comp.DamageDictCopy[kv.Key] = comp.Damage.DamageDict[kv.Key];
+        //}
 
 
     }
@@ -179,10 +179,6 @@ public sealed partial class DamageableSystem
     /// </summary>
     private void DamageableInit(Entity<DamageableComponent> ent, ref ComponentInit _)
     {
-        if(ent.Comp.DamageDictCopy != null)
-        {
-            ent.Comp.Damage.DamageDict = ent.Comp.DamageDictCopy;
-        }
         if (
             ent.Comp.DamageContainerID is null ||
             !_prototypeManager.Resolve(ent.Comp.DamageContainerID, out var damageContainerPrototype)

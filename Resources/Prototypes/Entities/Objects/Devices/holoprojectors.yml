@@ -166,18 +166,6 @@
         - SecBeltEquip
     - type: StaticPrice
       price: 20
-  - type: HolosignProjector
-    signProto: HolosignSecurity
-    chargeUse: 90
-  - type: Sprite
-    sprite: Objects/Devices/Holoprojectors/security.rsi
-    state: icon
-  - type: Tag
-    tags:
-    - HolofanProjector
-    - SecBeltEquip
-  - type: StaticPrice
-    price: 50
 
 - type: entity
   parent: HoloprojectorSecurity

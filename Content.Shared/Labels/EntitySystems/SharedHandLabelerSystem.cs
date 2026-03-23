@@ -76,32 +76,6 @@ public abstract class SharedHandLabelerSystem : EntitySystem
 
         _popupSystem.PopupClient(Loc.GetString("hand-labeler-successfully-applied"), user, user);
     }
-    private void OnUtilityVerb(EntityUid uid, HandLabelerComponent handLabeler, GetVerbsEvent<UtilityVerb> args)
-    {
-        if (args.Target is not { Valid: true } target || _whitelistSystem.IsWhitelistFail(handLabeler.Whitelist, target) || !args.CanAccess)
-            return;
-
-        var labelerText = handLabeler.AssignedLabel == string.Empty ? Loc.GetString("hand-labeler-remove-label-text") : Loc.GetString("hand-labeler-add-label-text");
-
-        var verb = new UtilityVerb()
-        {
-            Act = () =>
-            {
-                Labeling(uid, target, args.User, handLabeler);
-            },
-            Text = labelerText
-        };
-
-        args.Verbs.Add(verb);
-    }
-
-    private void AfterInteractOn(EntityUid uid, HandLabelerComponent handLabeler, AfterInteractEvent args)
-    {
-        if (args.Target is not { Valid: true } target || _whitelistSystem.IsWhitelistFail(handLabeler.Whitelist, target) || !args.CanReach)
-            return;
-
-        Labeling(uid, target, args.User, handLabeler);
-    }
 
     private void Labeling(EntityUid uid, EntityUid target, EntityUid User, HandLabelerComponent handLabeler)
     {

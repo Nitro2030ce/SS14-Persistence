@@ -230,8 +230,8 @@ namespace Content.Client.Cargo.UI
                 if (order.Approved || !_protoManager.Resolve(order.Product, out var productProto))
                     continue;
 
-                var product = _protoManager.Index<EntityPrototype>(order.ProductId);
-                var cost = order.Price;
+                var product = _protoManager.Index<EntityPrototype>(productProto.Product);
+                var cost = productProto.Cost;
                 if (_PersonalMode || state.OwnedTrade != order.TradeStation)
                 {
                     cost += (int)Math.Round((float)cost * ((float)order.Tax / 100f));
@@ -242,6 +242,9 @@ namespace Content.Client.Cargo.UI
 //                 var requester = !string.IsNullOrEmpty(order.Requester) ?
 //                     order.Requester : Loc.GetString("cargo-console-menu-order-row-alerts-requester-unknown");
                 var account = _protoManager.Index(order.Account);
+                var requester = !string.IsNullOrEmpty(order.Requester) ?
+                order.Requester : Loc.GetString("cargo-console-menu-order-row-alerts-requester-unknown");
+
                 var row = new CargoOrderRow
                 {
                     Order = order,
@@ -265,7 +268,6 @@ namespace Content.Client.Cargo.UI
                     },
 
                     Icon = { Texture = _spriteSystem.Frame0(product) },
-
                     ProductName =
                     {
                         Text = Loc.GetString(

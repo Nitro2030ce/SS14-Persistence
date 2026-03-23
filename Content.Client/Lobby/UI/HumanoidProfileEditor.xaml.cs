@@ -4,6 +4,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
+using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
@@ -18,6 +19,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using System.Linq;
 using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.Lobby.UI
@@ -56,10 +58,6 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public EntityUid PreviewDummy;
 
-        /// <summary>
-        /// Temporary override of their selected job, used to preview roles.
-        /// </summary>
-        public JobPrototype? JobOverride;
 
         /// <summary>
         /// The character slot for the current profile.
@@ -433,79 +431,79 @@ namespace Content.Client.Lobby.UI
         /// <summary>
         /// Refreshes the flavor text editor status.
         /// </summary>
-        public void RefreshFlavorText()
-        {
-            if (_allowFlavorText)
-            {
-                if (_flavorText != null)
-                    return;
+        //public void RefreshFlavorText()
+        //{
+        //    if (_allowFlavorText)
+        //    {
+        //        if (_flavorText != null)
+        //            return;
 
-                _flavorText = new FlavorText.FlavorText();
-                TabContainer.AddChild(_flavorText);
-                TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-flavortext-tab"));
-                _flavorTextEdit = _flavorText.CFlavorTextInput;
+        //        _flavorText = new FlavorText.FlavorText();
+        //        TabContainer.AddChild(_flavorText);
+        //        TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-flavortext-tab"));
+        //        _flavorTextEdit = _flavorText.CFlavorTextInput;
 
-                _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
-            }
-            else
-            {
-                if (_flavorText == null)
-                    return;
+        //        _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
+        //    }
+        //    else
+        //    {
+        //        if (_flavorText == null)
+        //            return;
 
-                TabContainer.RemoveChild(_flavorText);
-                _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
-                _flavorText.Dispose();
-                _flavorTextEdit?.Dispose();
-                _flavorTextEdit = null;
-                _flavorText = null;
-            }
-        }
+        //        TabContainer.RemoveChild(_flavorText);
+        //        _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
+        //        _flavorText.Dispose();
+        //        _flavorTextEdit?.Dispose();
+        //        _flavorTextEdit = null;
+        //        _flavorText = null;
+        //    }
+        //}
 
         /// <summary>
         /// Refreshes traits selector
         /// </summary>
-        public void RefreshTraits()
-        {
+        //public void RefreshTraits()
+        //{
 
-        }
+        //}
 
         /// <summary>
         /// Refreshes the species selector.
         /// </summary>
-        public void RefreshSpecies()
-        {
-            SpeciesButton.Clear();
-            _species.Clear();
+        //public void RefreshSpecies()
+        //{
+        //    SpeciesButton.Clear();
+        //    _species.Clear();
 
-            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart));
-            _species.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
-            var speciesIds = _species.Select(o => o.ID).ToList();
+        //    _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart));
+        //    _species.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
+        //    var speciesIds = _species.Select(o => o.ID).ToList();
 
-            for (var i = 0; i < _species.Count; i++)
-            {
-                var name = Loc.GetString(_species[i].Name);
-                SpeciesButton.AddItem(name, i);
+        //    for (var i = 0; i < _species.Count; i++)
+        //    {
+        //        var name = Loc.GetString(_species[i].Name);
+        //        SpeciesButton.AddItem(name, i);
 
-                if (Profile?.Species.Equals(_species[i].ID) == true)
-                {
-                    SpeciesButton.SelectId(i);
-                }
-            }
+        //        if (Profile?.Species.Equals(_species[i].ID) == true)
+        //        {
+        //            SpeciesButton.SelectId(i);
+        //        }
+        //    }
 
-            // If our species isn't available then reset it to default.
-            if (Profile != null)
-            {
-                if (!speciesIds.Contains(Profile.Species))
-                {
-                    SetSpecies(SharedHumanoidAppearanceSystem.DefaultSpecies);
-                }
-            }
-        }
+        //    // If our species isn't available then reset it to default.
+        //    if (Profile != null)
+        //    {
+        //        if (!speciesIds.Contains(Profile.Species))
+        //        {
+        //            SetSpecies(SharedHumanoidAppearanceSystem.DefaultSpecies);
+        //        }
+        //    }
+        //}
 
-        public void RefreshAntags()
-        {
+        //public void RefreshAntags()
+        //{
 
-        }
+        //}
 
         private void SetDirty()
         {
@@ -600,10 +598,10 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
 
 
-            if (Profile != null)
-            {
-                PreferenceUnavailableButton.SelectId((int)Profile.PreferenceUnavailable);
-            }
+            //if (Profile != null)
+            //{
+            //    PreferenceUnavailableButton.SelectId((int)Profile.PreferenceUnavailable);
+            //}
         }
 
         /// <summary>
@@ -620,155 +618,155 @@ namespace Content.Client.Lobby.UI
             SetDirty();
         }
 
-        private void OnSpeciesInfoButtonPressed(BaseButton.ButtonEventArgs args)
-        {
-            // TODO GUIDEBOOK
-            // make the species guide book a field on the species prototype.
-            // I.e., do what jobs/antags do.
+        //private void OnSpeciesInfoButtonPressed(BaseButton.ButtonEventArgs args)
+        //{
+        //    // TODO GUIDEBOOK
+        //    // make the species guide book a field on the species prototype.
+        //    // I.e., do what jobs/antags do.
 
-            var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
-            var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
-            var page = DefaultSpeciesGuidebook;
-            if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
-                page = new ProtoId<GuideEntryPrototype>(species.Id); // Gross. See above todo comment.
+        //    var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
+        //    var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
+        //    var page = DefaultSpeciesGuidebook;
+        //    if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
+        //        page = new ProtoId<GuideEntryPrototype>(species.Id); // Gross. See above todo comment.
 
-            if (_prototypeManager.Resolve(DefaultSpeciesGuidebook, out var guideRoot))
-            {
-                var dict = new Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry>();
-                dict.Add(DefaultSpeciesGuidebook, guideRoot);
-                //TODO: Don't close the guidebook if its already open, just go to the correct page
-                guidebookController.OpenGuidebook(dict, includeChildren:true, selected: page);
-            }
-        }
+        //    if (_prototypeManager.Resolve(DefaultSpeciesGuidebook, out var guideRoot))
+        //    {
+        //        var dict = new Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry>();
+        //        dict.Add(DefaultSpeciesGuidebook, guideRoot);
+        //        //TODO: Don't close the guidebook if its already open, just go to the correct page
+        //        guidebookController.OpenGuidebook(dict, includeChildren:true, selected: page);
+        //    }
+        //}
 
         /// <summary>
         /// Refreshes all job selectors.
         /// </summary>
-        public void RefreshJobs()
-        {
+        //public void RefreshJobs()
+        //{
 
-        }
+        //}
 
-        private void OpenLoadout(JobPrototype? jobProto, RoleLoadout roleLoadout, RoleLoadoutPrototype roleLoadoutProto)
-        {
-            _loadoutWindow?.Dispose();
-            _loadoutWindow = null;
-            var collection = IoCManager.Instance;
+        //private void OpenLoadout(JobPrototype? jobProto, RoleLoadout roleLoadout, RoleLoadoutPrototype roleLoadoutProto)
+        //{
+        //    _loadoutWindow?.Dispose();
+        //    _loadoutWindow = null;
+        //    var collection = IoCManager.Instance;
 
-            if (collection == null || _playerManager.LocalSession == null || Profile == null)
-                return;
+        //    if (collection == null || _playerManager.LocalSession == null || Profile == null)
+        //        return;
 
-            JobOverride = jobProto;
-            var session = _playerManager.LocalSession;
+        //    JobOverride = jobProto;
+        //    var session = _playerManager.LocalSession;
 
-            _loadoutWindow = new LoadoutWindow(Profile, roleLoadout, roleLoadoutProto, _playerManager.LocalSession, collection)
-            {
-                Title = Loc.GetString("loadout-window-title-loadout", ("job", $"{jobProto?.LocalizedName}")),
-            };
+        //    _loadoutWindow = new LoadoutWindow(Profile, roleLoadout, roleLoadoutProto, _playerManager.LocalSession, collection)
+        //    {
+        //        Title = Loc.GetString("loadout-window-title-loadout", ("job", $"{jobProto?.LocalizedName}")),
+        //    };
 
-            // Refresh the buttons etc.
-            _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
-            _loadoutWindow.OpenCenteredLeft();
+        //    // Refresh the buttons etc.
+        //    _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
+        //    _loadoutWindow.OpenCenteredLeft();
 
-            _loadoutWindow.OnNameChanged += name =>
-            {
-                roleLoadout.EntityName = name;
-                Profile = Profile.WithLoadout(roleLoadout);
-                SetDirty();
-            };
+        //    _loadoutWindow.OnNameChanged += name =>
+        //    {
+        //        roleLoadout.EntityName = name;
+        //        Profile = Profile.WithLoadout(roleLoadout);
+        //        SetDirty();
+        //    };
 
-            _loadoutWindow.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>
-            {
-                roleLoadout.AddLoadout(loadoutGroup, loadoutProto, _prototypeManager);
-                _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
-                Profile = Profile?.WithLoadout(roleLoadout);
-                ReloadPreview();
-            };
+        //    _loadoutWindow.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>
+        //    {
+        //        roleLoadout.AddLoadout(loadoutGroup, loadoutProto, _prototypeManager);
+        //        _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
+        //        Profile = Profile?.WithLoadout(roleLoadout);
+        //        ReloadPreview();
+        //    };
 
-            _loadoutWindow.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>
-            {
-                roleLoadout.RemoveLoadout(loadoutGroup, loadoutProto, _prototypeManager);
-                _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
-                Profile = Profile?.WithLoadout(roleLoadout);
-                ReloadPreview();
-            };
+        //    _loadoutWindow.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>
+        //    {
+        //        roleLoadout.RemoveLoadout(loadoutGroup, loadoutProto, _prototypeManager);
+        //        _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
+        //        Profile = Profile?.WithLoadout(roleLoadout);
+        //        ReloadPreview();
+        //    };
 
-            JobOverride = jobProto;
-            ReloadPreview();
+        //    JobOverride = jobProto;
+        //    ReloadPreview();
 
-            _loadoutWindow.OnClose += () =>
-            {
-                JobOverride = null;
-                ReloadPreview();
-            };
+        //    _loadoutWindow.OnClose += () =>
+        //    {
+        //        JobOverride = null;
+        //        ReloadPreview();
+        //    };
 
-            if (Profile is null)
-                return;
+        //    if (Profile is null)
+        //        return;
 
-            UpdateJobPriorities();
-        }
+        //    UpdateJobPriorities();
+        //}
 
-        private void OnFlavorTextChange(string content)
-        {
-            if (Profile is null)
-                return;
+        //private void OnFlavorTextChange(string content)
+        //{
+        //    if (Profile is null)
+        //        return;
 
-            Profile = Profile.WithFlavorText(content);
-            SetDirty();
-        }
+        //    Profile = Profile.WithFlavorText(content);
+        //    SetDirty();
+        //}
 
-        private void OnMarkingChange(MarkingSet markings)
-        {
-            if (Profile is null)
-                return;
+        //private void OnMarkingChange(MarkingSet markings)
+        //{
+        //    if (Profile is null)
+        //        return;
 
-            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
-            ReloadProfilePreview();
-        }
+        //    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
+        //    ReloadProfilePreview();
+        //}
 
-        private void OnSkinColorOnValueChanged()
-        {
-            if (Profile is null) return;
+        //private void OnSkinColorOnValueChanged()
+        //{
+        //    if (Profile is null) return;
 
-            var skin = _prototypeManager.Index<SpeciesPrototype>(Profile.Species).SkinColoration;
-            var strategy = _prototypeManager.Index(skin).Strategy;
+        //    var skin = _prototypeManager.Index<SpeciesPrototype>(Profile.Species).SkinColoration;
+        //    var strategy = _prototypeManager.Index(skin).Strategy;
 
-            switch (strategy.InputType)
-            {
-                case SkinColorationStrategyInput.Unary:
-                {
-                    if (!Skin.Visible)
-                    {
-                        Skin.Visible = true;
-                        RgbSkinColorContainer.Visible = false;
-                    }
+        //    switch (strategy.InputType)
+        //    {
+        //        case SkinColorationStrategyInput.Unary:
+        //        {
+        //            if (!Skin.Visible)
+        //            {
+        //                Skin.Visible = true;
+        //                RgbSkinColorContainer.Visible = false;
+        //            }
 
-                    var color = strategy.FromUnary(Skin.Value);
+        //            var color = strategy.FromUnary(Skin.Value);
 
-                    Markings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+        //            Markings.CurrentSkinColor = color;
+        //            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
 
-                    break;
-                }
-                case SkinColorationStrategyInput.Color:
-                {
-                    if (!RgbSkinColorContainer.Visible)
-                    {
-                        Skin.Visible = false;
-                        RgbSkinColorContainer.Visible = true;
-                    }
+        //            break;
+        //        }
+        //        case SkinColorationStrategyInput.Color:
+        //        {
+        //            if (!RgbSkinColorContainer.Visible)
+        //            {
+        //                Skin.Visible = false;
+        //                RgbSkinColorContainer.Visible = true;
+        //            }
 
-                    var color = strategy.ClosestSkinColor(_rgbSkinColorSelector.Color);
+        //            var color = strategy.ClosestSkinColor(_rgbSkinColorSelector.Color);
 
-                    Markings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+        //            Markings.CurrentSkinColor = color;
+        //            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
 
-                    break;
-                }
-            }
+        //            break;
+        //        }
+        //    }
 
-            ReloadProfilePreview();
-        }
+        //    ReloadProfilePreview();
+        //}
 
         protected override void Dispose(bool disposing)
         {
@@ -797,112 +795,24 @@ namespace Content.Client.Lobby.UI
             SpriteView.OverrideDirection = (Direction) ((int) direction % 4 * 2);
         }
 
-        private void RandomizeEverything()
-        {
-            if(Profile != null)
-                 Profile = HumanoidCharacterProfile.RandomWithSpecies(Profile.Species);
-            else
-                Profile = HumanoidCharacterProfile.Random();
-            SetProfile(Profile, CharacterSlot);
-            SetDirty();
-        }
+        //private void RandomizeEverything()
+        //{
+        //    if(Profile != null)
+        //         Profile = HumanoidCharacterProfile.RandomWithSpecies(Profile.Species);
+        //    else
+        //        Profile = HumanoidCharacterProfile.Random();
+        //    SetProfile(Profile, CharacterSlot);
+        //    SetDirty();
+        //}
 
-        private void RandomizeName()
-        {
-            if (Profile == null) return;
-            var name = HumanoidCharacterProfile.GetName(Profile.Species, Profile.Gender);
-            SetName(name);
-            UpdateNameEdit();
-        }
+        //private void RandomizeName()
+        //{
+        //    if (Profile == null) return;
+        //    var name = HumanoidCharacterProfile.GetName(Profile.Species, Profile.Gender);
+        //    SetName(name);
+        //    UpdateNameEdit();
+        //}
 
-        private async void ExportImage()
-        {
-            if (_imaging)
-                return;
-
-            var dir = SpriteView.OverrideDirection ?? Direction.South;
-
-            // I tried disabling the button but it looks sorta goofy as it only takes a frame or two to save
-            _imaging = true;
-            await _entManager.System<ContentSpriteSystem>().Export(PreviewDummy, dir, includeId: false);
-            _imaging = false;
-        }
-
-        private async void ImportProfile()
-        {
-            if (_exporting || CharacterSlot == null || Profile == null)
-                return;
-
-            StartExport();
-            await using var file = await _dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")), FileAccess.Read);
-
-            if (file == null)
-            {
-                EndExport();
-                return;
-            }
-
-            try
-            {
-                var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!);
-                var oldProfile = Profile;
-                SetProfile(profile, CharacterSlot);
-
-                IsDirty = !profile.MemberwiseEquals(oldProfile);
-            }
-            catch (Exception exc)
-            {
-                _sawmill.Error($"Error when importing profile\n{exc.StackTrace}");
-            }
-            finally
-            {
-                EndExport();
-            }
-        }
-
-        private async void ExportProfile()
-        {
-            if (Profile == null || _exporting)
-                return;
-
-            StartExport();
-            var file = await _dialogManager.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
-
-            if (file == null)
-            {
-                EndExport();
-                return;
-            }
-
-            try
-            {
-                var dataNode = _entManager.System<HumanoidAppearanceSystem>().ToDataNode(Profile);
-                await using var writer = new StreamWriter(file.Value.fileStream);
-                dataNode.Write(writer);
-            }
-            catch (Exception exc)
-            {
-                _sawmill.Error($"Error when exporting profile\n{exc.StackTrace}");
-            }
-            finally
-            {
-                EndExport();
-                await file.Value.fileStream.DisposeAsync();
-            }
-        }
-
-        private void StartExport()
-        {
-            _exporting = true;
-            ImportButton.Disabled = true;
-            ExportButton.Disabled = true;
-        }
-
-        private void EndExport()
-        {
-            _exporting = false;
-            ImportButton.Disabled = false;
-            ExportButton.Disabled = false;
-        }
+    
     }
 }

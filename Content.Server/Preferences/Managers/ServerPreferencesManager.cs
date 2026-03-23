@@ -338,7 +338,7 @@ namespace Content.Server.Preferences.Managers
             gameTicker.MakeJoinGamePersistentLoad(session);
         }
 
-        public async Task FinalizeCharacter(ICharacterProfile profile, int slot, NetUserId userId, ICommonSession session)
+        public async Task FinalizeCharacter(HumanoidCharacterProfile profile, int slot, NetUserId userId, ICommonSession session)
         {
 
             CrewMetaRecordsSystem? metaRecords = _entityManager.System<CrewMetaRecordsSystem>();
@@ -362,7 +362,7 @@ namespace Content.Server.Preferences.Managers
                 return;
             }
             var curPrefs = prefsData.Prefs!;
-            var arr = new Dictionary<int, ICharacterProfile>(curPrefs.Characters);
+            var arr = new Dictionary<int, HumanoidCharacterProfile>(curPrefs.Characters);
             arr.Remove(slot);
             arr.Add(slot, profile);
             prefsData.Prefs = new PlayerPreferences(arr, slot, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);
@@ -388,7 +388,7 @@ namespace Content.Server.Preferences.Managers
             var curPrefs = prefsData.Prefs!;
 
 
-            var arr = new Dictionary<int, ICharacterProfile>(curPrefs.Characters);
+            var arr = new Dictionary<int, HumanoidCharacterProfile>(curPrefs.Characters);
             arr.Remove(slot);
 
             prefsData.Prefs = new PlayerPreferences(arr, curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);

@@ -95,7 +95,6 @@ public sealed partial class DamageableComponent : Component
     [DataField]
     public FixedPoint2? HealthBarThreshold;
 
-    [DataField] public Dictionary<string, FixedPoint2>? DamageDictCopy { get; set; } = new();
 
 }
 

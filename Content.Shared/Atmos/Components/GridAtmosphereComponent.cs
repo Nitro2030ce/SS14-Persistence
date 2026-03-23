@@ -152,4 +152,14 @@ public sealed partial class GridAtmosphereComponent : Component
 
     [ViewVariables]
     public AtmosphereProcessingState State { get; set; } = AtmosphereProcessingState.Revalidate;
+
+    /// <summary>
+    /// Serialized list of atmos devices in the same order used to build the processing queue.
+    /// Populated right before map serialization.
+    /// </summary>
+    [ViewVariables]
+    [DataField("atmosDevicesOrder")]
+    public List<EntityUid> AtmosDevicesOrder = new();
+
+
 }

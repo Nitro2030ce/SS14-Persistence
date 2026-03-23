@@ -6,6 +6,7 @@ using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Examine;
 using Content.Shared.NodeContainer;
 using Content.Shared.Power;

@@ -41,7 +41,11 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     The currently selected character.
         /// </summary>
-        public HumanoidCharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
+        public HumanoidCharacterProfile? SelectedCharacter =>
+            SelectedCharacterIndex >= 0 &&
+            Characters.TryGetValue(SelectedCharacterIndex, out var character)
+                ? character
+                : null;
 
         public Color AdminOOCColor { get; set; }
 

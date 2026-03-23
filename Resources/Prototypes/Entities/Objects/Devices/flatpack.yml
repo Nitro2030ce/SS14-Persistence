@@ -366,6 +366,7 @@
     layers:
     - state: fan
 
+- type: entity
   parent: [ BaseFlatpack, BaseSyndicateContraband ]
   id: SyndicateMicrowaveFlatpack
   name: donk co. microwave flatpack

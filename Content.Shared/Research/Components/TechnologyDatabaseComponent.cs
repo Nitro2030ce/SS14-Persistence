@@ -19,7 +19,7 @@ public sealed partial class TechnologyDatabaseComponent : Component
 
     [AutoNetworkedField]
     [DataField("currentTechnologyCards")]
-    public List<string> CurrentTechnologyCards = new();
+    public List<ProtoId<TechnologyPrototype>> CurrentTechnologyCards = new();
 
     /// <summary>
     /// Which research disciplines are able to be unlocked

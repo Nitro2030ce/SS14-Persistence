@@ -56,7 +56,7 @@ namespace Content.Server.Atmos.Reactions
 
             if (location != null && decompositionRate > Atmospherics.MinimumHeatCapacity)
             {
-                atmosphereSystem.HotspotExpose(location, mixture.Temperature, mixture.Volume, fuelGas: Gas.ChlorineTrifluoride);
+                atmosphereSystem.HotspotExpose(location, mixture.Temperature, mixture.Volume);
             }
 
             return mixture.ReactionResults[(byte)GasReaction.Fire] != 0 ? (ReactionResult.Reacting | ReactionResult.StopReactions) : ReactionResult.NoReaction;

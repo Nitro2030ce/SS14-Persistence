@@ -346,16 +346,3 @@
   rotation: User
   fx: EffectRCDConstruct1
 
-# Holo airlock
-
-- type: rcd
-  id: HoloAirlock
-  category: Airlocks
-  sprite: /Textures/Interface/Radial/RCD/airlock.png
-  mode: ConstructObject
-  prototype: HoloAirlock
-  collisionMask: FullTileMask
-  cost: 0
-  delay: 1
-  rotation: Fixed
-  fx: EffectRCDConstruct2

@@ -112,249 +112,249 @@ public sealed partial class HumanoidProfileEditor
     /// </summary>
     public void RefreshJobs()
     {
-        JobList.RemoveAllChildren();
-        _jobCategories.Clear();
-        _jobPriorities.Clear();
-        var firstCategory = true;
+        //JobList.RemoveAllChildren();
+        //_jobCategories.Clear();
+        //_jobPriorities.Clear();
+        //var firstCategory = true;
 
-        // Get all displayed departments
-        var departments = new List<DepartmentPrototype>();
-        foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
-        {
-            if (department.EditorHidden)
-                continue;
+        //// Get all displayed departments
+        //var departments = new List<DepartmentPrototype>();
+        //foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
+        //{
+        //    if (department.EditorHidden)
+        //        continue;
 
-            departments.Add(department);
-        }
+        //    departments.Add(department);
+        //}
 
-        departments.Sort(DepartmentUIComparer.Instance);
+        //departments.Sort(DepartmentUIComparer.Instance);
 
-        var items = new[]
-        {
-                ("humanoid-profile-editor-job-priority-never-button", (int) JobPriority.Never),
-                ("humanoid-profile-editor-job-priority-low-button", (int) JobPriority.Low),
-                ("humanoid-profile-editor-job-priority-medium-button", (int) JobPriority.Medium),
-                ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
-            };
+        //var items = new[]
+        //{
+        //        ("humanoid-profile-editor-job-priority-never-button", (int) JobPriority.Never),
+        //        ("humanoid-profile-editor-job-priority-low-button", (int) JobPriority.Low),
+        //        ("humanoid-profile-editor-job-priority-medium-button", (int) JobPriority.Medium),
+        //        ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
+        //    };
 
-        foreach (var department in departments)
-        {
-            var departmentName = Loc.GetString(department.Name);
+        //foreach (var department in departments)
+        //{
+        //    var departmentName = Loc.GetString(department.Name);
 
-            if (!_jobCategories.TryGetValue(department.ID, out var category))
-            {
-                category = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Vertical,
-                    Name = department.ID,
-                    ToolTip = Loc.GetString("humanoid-profile-editor-jobs-amount-in-department-tooltip",
-                        ("departmentName", departmentName))
-                };
+        //    if (!_jobCategories.TryGetValue(department.ID, out var category))
+        //    {
+        //        category = new BoxContainer
+        //        {
+        //            Orientation = LayoutOrientation.Vertical,
+        //            Name = department.ID,
+        //            ToolTip = Loc.GetString("humanoid-profile-editor-jobs-amount-in-department-tooltip",
+        //                ("departmentName", departmentName))
+        //        };
 
-                if (firstCategory)
-                {
-                    firstCategory = false;
-                }
-                else
-                {
-                    category.AddChild(new Control
-                    {
-                        MinSize = new Vector2(0, 23),
-                    });
-                }
+        //        if (firstCategory)
+        //        {
+        //            firstCategory = false;
+        //        }
+        //        else
+        //        {
+        //            category.AddChild(new Control
+        //            {
+        //                MinSize = new Vector2(0, 23),
+        //            });
+        //        }
 
-                category.AddChild(new PanelContainer
-                {
-                    PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#464966") },
-                    Children =
-                        {
-                            new Label
-                            {
-                                Text = Loc.GetString("humanoid-profile-editor-department-jobs-label",
-                                    ("departmentName", departmentName)),
-                                Margin = new Thickness(5f, 0, 0, 0)
-                            }
-                        }
-                });
+        //        category.AddChild(new PanelContainer
+        //        {
+        //            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#464966") },
+        //            Children =
+        //                {
+        //                    new Label
+        //                    {
+        //                        Text = Loc.GetString("humanoid-profile-editor-department-jobs-label",
+        //                            ("departmentName", departmentName)),
+        //                        Margin = new Thickness(5f, 0, 0, 0)
+        //                    }
+        //                }
+        //        });
 
-                _jobCategories[department.ID] = category;
-                JobList.AddChild(category);
-            }
+        //        _jobCategories[department.ID] = category;
+        //        JobList.AddChild(category);
+        //    }
 
-            var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
-                .Where(job => job.SetPreference)
-                .ToArray();
+        //    var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
+        //        .Where(job => job.SetPreference)
+        //        .ToArray();
 
-            Array.Sort(jobs, JobUIComparer.Instance);
+        //    Array.Sort(jobs, JobUIComparer.Instance);
 
-            foreach (var job in jobs)
-            {
-                var jobContainer = new BoxContainer()
-                {
-                    Orientation = LayoutOrientation.Horizontal,
-                };
+        //    foreach (var job in jobs)
+        //    {
+        //        var jobContainer = new BoxContainer()
+        //        {
+        //            Orientation = LayoutOrientation.Horizontal,
+        //        };
 
-                var selector = new RequirementsSelector()
-                {
-                    Margin = new Thickness(3f, 3f, 3f, 0f),
-                };
-                selector.OnOpenGuidebook += OnOpenGuidebook;
+        //        var selector = new RequirementsSelector()
+        //        {
+        //            Margin = new Thickness(3f, 3f, 3f, 0f),
+        //        };
+        //        selector.OnOpenGuidebook += OnOpenGuidebook;
 
-                var icon = new TextureRect
-                {
-                    TextureScale = new Vector2(2, 2),
-                    VerticalAlignment = VAlignment.Center
-                };
-                var jobIcon = _prototypeManager.Index(job.Icon);
-                icon.Texture = _sprite.Frame0(jobIcon.Icon);
-                selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon, job.Guides);
+        //        var icon = new TextureRect
+        //        {
+        //            TextureScale = new Vector2(2, 2),
+        //            VerticalAlignment = VAlignment.Center
+        //        };
+        //        var jobIcon = _prototypeManager.Index(job.Icon);
+        //        icon.Texture = _sprite.Frame0(jobIcon.Icon);
+        //        selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon, job.Guides);
 
-                if (!_requirements.IsAllowed(job, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out var reason))
-                {
-                    selector.LockRequirements(reason);
-                }
-                else
-                {
-                    selector.UnlockRequirements();
-                }
+        //        if (!_requirements.IsAllowed(job, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out var reason))
+        //        {
+        //            selector.LockRequirements(reason);
+        //        }
+        //        else
+        //        {
+        //            selector.UnlockRequirements();
+        //        }
 
-                selector.OnSelected += selectedPrio =>
-                {
-                    var selectedJobPrio = (JobPriority)selectedPrio;
-                    Profile = Profile?.WithJobPriority(job.ID, selectedJobPrio);
+        //        selector.OnSelected += selectedPrio =>
+        //        {
+        //            var selectedJobPrio = (JobPriority)selectedPrio;
+        //            Profile = Profile?.WithJobPriority(job.ID, selectedJobPrio);
 
-                    foreach (var (jobId, other) in _jobPriorities)
-                    {
-                        // Sync other selectors with the same job in case of multiple department jobs
-                        if (jobId == job.ID)
-                        {
-                            other.Select(selectedPrio);
-                            continue;
-                        }
+        //            foreach (var (jobId, other) in _jobPriorities)
+        //            {
+        //                // Sync other selectors with the same job in case of multiple department jobs
+        //                if (jobId == job.ID)
+        //                {
+        //                    other.Select(selectedPrio);
+        //                    continue;
+        //                }
 
-                        if (selectedJobPrio != JobPriority.High || (JobPriority)other.Selected != JobPriority.High)
-                            continue;
+        //                if (selectedJobPrio != JobPriority.High || (JobPriority)other.Selected != JobPriority.High)
+        //                    continue;
 
-                        // Lower any other high priorities to medium.
-                        other.Select((int)JobPriority.Medium);
-                        Profile = Profile?.WithJobPriority(jobId, JobPriority.Medium);
-                    }
+        //                // Lower any other high priorities to medium.
+        //                other.Select((int)JobPriority.Medium);
+        //                Profile = Profile?.WithJobPriority(jobId, JobPriority.Medium);
+        //            }
 
-                    // TODO: Only reload on high change (either to or from).
-                    ReloadPreview();
+        //            // TODO: Only reload on high change (either to or from).
+        //            ReloadPreview();
 
-                    UpdateJobPriorities();
-                    SetDirty();
-                };
+        //            UpdateJobPriorities();
+        //            SetDirty();
+        //        };
 
-                var loadoutWindowBtn = new Button()
-                {
-                    Text = Loc.GetString("loadout-window"),
-                    HorizontalAlignment = HAlignment.Right,
-                    VerticalAlignment = VAlignment.Center,
-                    Margin = new Thickness(3f, 3f, 0f, 0f),
-                };
+        //        var loadoutWindowBtn = new Button()
+        //        {
+        //            Text = Loc.GetString("loadout-window"),
+        //            HorizontalAlignment = HAlignment.Right,
+        //            VerticalAlignment = VAlignment.Center,
+        //            Margin = new Thickness(3f, 3f, 0f, 0f),
+        //        };
 
-                var collection = IoCManager.Instance!;
-                var protoManager = collection.Resolve<IPrototypeManager>();
+        //        var collection = IoCManager.Instance!;
+        //        var protoManager = collection.Resolve<IPrototypeManager>();
 
-                // If no loadout found then disabled button
-                if (!protoManager.TryIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID), out var roleLoadoutProto))
-                {
-                    loadoutWindowBtn.Disabled = true;
-                }
-                // else
-                else
-                {
-                    loadoutWindowBtn.OnPressed += args =>
-                    {
-                        RoleLoadout? loadout = null;
+        //        // If no loadout found then disabled button
+        //        if (!protoManager.TryIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID), out var roleLoadoutProto))
+        //        {
+        //            loadoutWindowBtn.Disabled = true;
+        //        }
+        //        // else
+        //        else
+        //        {
+        //            loadoutWindowBtn.OnPressed += args =>
+        //            {
+        //                RoleLoadout? loadout = null;
 
-                        // Clone so we don't modify the underlying loadout.
-                        Profile?.Loadouts.TryGetValue(LoadoutSystem.GetJobPrototype(job.ID), out loadout);
-                        loadout = loadout?.Clone();
+        //                // Clone so we don't modify the underlying loadout.
+        //                Profile?.Loadouts.TryGetValue(LoadoutSystem.GetJobPrototype(job.ID), out loadout);
+        //                loadout = loadout?.Clone();
 
-                        if (loadout == null)
-                        {
-                            loadout = new RoleLoadout(roleLoadoutProto.ID);
-                            loadout.SetDefault(Profile, _playerManager.LocalSession, _prototypeManager);
-                        }
+        //                if (loadout == null)
+        //                {
+        //                    loadout = new RoleLoadout(roleLoadoutProto.ID);
+        //                    loadout.SetDefault(Profile, _playerManager.LocalSession, _prototypeManager);
+        //                }
 
-                        OpenLoadout(job, loadout, roleLoadoutProto);
-                    };
-                }
+        //                OpenLoadout(job, loadout, roleLoadoutProto);
+        //            };
+        //        }
 
-                _jobPriorities.Add((job.ID, selector));
-                jobContainer.AddChild(selector);
-                jobContainer.AddChild(loadoutWindowBtn);
-                category.AddChild(jobContainer);
-            }
-        }
+        //        _jobPriorities.Add((job.ID, selector));
+        //        jobContainer.AddChild(selector);
+        //        jobContainer.AddChild(loadoutWindowBtn);
+        //        category.AddChild(jobContainer);
+        //    }
+        //}
 
-        UpdateJobPriorities();
+        //UpdateJobPriorities();
     }
 
     public void RefreshAntags()
     {
-        AntagList.RemoveAllChildren();
-        var items = new[]
-        {
-            ("humanoid-profile-editor-antag-preference-yes-button", 0),
-            ("humanoid-profile-editor-antag-preference-no-button", 1)
-        };
+        //AntagList.RemoveAllChildren();
+        //var items = new[]
+        //{
+        //    ("humanoid-profile-editor-antag-preference-yes-button", 0),
+        //    ("humanoid-profile-editor-antag-preference-no-button", 1)
+        //};
 
-        foreach (var antag in _prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
-        {
-            if (!antag.SetPreference)
-                continue;
+        //foreach (var antag in _prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
+        //{
+        //    if (!antag.SetPreference)
+        //        continue;
 
-            var antagContainer = new BoxContainer()
-            {
-                Orientation = LayoutOrientation.Horizontal,
-            };
+        //    var antagContainer = new BoxContainer()
+        //    {
+        //        Orientation = LayoutOrientation.Horizontal,
+        //    };
 
-            var selector = new RequirementsSelector()
-            {
-                Margin = new Thickness(3f, 3f, 3f, 0f),
-            };
-            selector.OnOpenGuidebook += OnOpenGuidebook;
+        //    var selector = new RequirementsSelector()
+        //    {
+        //        Margin = new Thickness(3f, 3f, 3f, 0f),
+        //    };
+        //    selector.OnOpenGuidebook += OnOpenGuidebook;
 
-            var title = Loc.GetString(antag.Name);
-            var description = Loc.GetString(antag.Objective);
-            selector.Setup(items, title, 250, description, guides: antag.Guides);
-            selector.Select(Profile?.AntagPreferences.Contains(antag.ID) == true ? 0 : 1);
+        //    var title = Loc.GetString(antag.Name);
+        //    var description = Loc.GetString(antag.Objective);
+        //    selector.Setup(items, title, 250, description, guides: antag.Guides);
+        //    selector.Select(Profile?.AntagPreferences.Contains(antag.ID) == true ? 0 : 1);
 
-            if (!_requirements.IsAllowed(
-                    antag,
-                    (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter,
-                    out var reason))
-            {
-                selector.LockRequirements(reason);
-                Profile = Profile?.WithAntagPreference(antag.ID, false);
-                SetDirty();
-            }
-            else
-            {
-                selector.UnlockRequirements();
-            }
+        //    if (!_requirements.IsAllowed(
+        //            antag,
+        //            (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter,
+        //            out var reason))
+        //    {
+        //        selector.LockRequirements(reason);
+        //        Profile = Profile?.WithAntagPreference(antag.ID, false);
+        //        SetDirty();
+        //    }
+        //    else
+        //    {
+        //        selector.UnlockRequirements();
+        //    }
 
-            selector.OnSelected += preference =>
-            {
-                Profile = Profile?.WithAntagPreference(antag.ID, preference == 0);
-                SetDirty();
-            };
+        //    selector.OnSelected += preference =>
+        //    {
+        //        Profile = Profile?.WithAntagPreference(antag.ID, preference == 0);
+        //        SetDirty();
+        //    };
 
-            antagContainer.AddChild(selector);
+        //    antagContainer.AddChild(selector);
 
-            antagContainer.AddChild(new Button()
-            {
-                Disabled = true,
-                Text = Loc.GetString("loadout-window"),
-                HorizontalAlignment = HAlignment.Right,
-                Margin = new Thickness(3f, 0f, 0f, 0f),
-            });
+        //    antagContainer.AddChild(new Button()
+        //    {
+        //        Disabled = true,
+        //        Text = Loc.GetString("loadout-window"),
+        //        HorizontalAlignment = HAlignment.Right,
+        //        Margin = new Thickness(3f, 0f, 0f, 0f),
+        //    });
 
-            AntagList.AddChild(antagContainer);
-        }
+        //    AntagList.AddChild(antagContainer);
+        //}
     }
 }
