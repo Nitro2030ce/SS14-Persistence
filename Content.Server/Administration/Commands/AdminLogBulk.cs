@@ -1,10 +1,3 @@
-﻿using System.Threading.Tasks;
-using Content.Server.Administration.Logs;
-using Content.Shared.Administration;
-using Content.Shared.Database;
-using Robust.Shared.Console;
-using Robust.Shared.Timing;
-
 namespace Content.Server.Administration.Commands;
 
 #if DEBUG
@@ -28,8 +21,8 @@ public sealed class AdminLogBulk : IConsoleCommand
 
         switch (args)
         {
-            case {Length: 1} when int.TryParse(args[0], out amount):
-            case {Length: 2} when int.TryParse(args[0], out amount) &&
+            case { Length: 1 } when int.TryParse(args[0], out amount):
+            case { Length: 2 } when int.TryParse(args[0], out amount) &&
                                   bool.TryParse(args[1], out parallel):
                 break;
             default:
