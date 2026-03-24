@@ -838,6 +838,7 @@ namespace Content.Server.GameTicking
             }
         }
 
+        private int _warnings = 3;
         public bool DelayStart(TimeSpan time)
         {
             if (_runLevel != GameRunLevel.PreRoundLobby)
@@ -855,40 +856,40 @@ namespace Content.Server.GameTicking
         }
         private void UpdateRoundFlow(float frameTime)
         {
-            int warnings = 3;
+            
             if (_cfg.GetCVar(CCVars.AutoSaveEnabled) && RunLevel == GameRunLevel.InRound)
             {
                 RoundLengthMetric.Inc(frameTime);
 
                 _timeToNextSave += TimeSpan.FromSeconds(frameTime);
-                if (warnings == 3)
+                if (_warnings == 3)
                 {
                     if (_timeToNextSave > TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.AutoSaveInterval) - 5))
                     {
-                        warnings--;
+                        _warnings--;
                         SendServerMessage("The game will automatically save in 5 minutes.");
                     }
                 }
-                else if (warnings == 2)
+                else if (_warnings == 2)
                 {
                     if (_timeToNextSave > TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.AutoSaveInterval) - 1))
                     {
-                        warnings--;
+                        _warnings--;
                         SendServerMessage("The game will automatically save in 1 minute.");
                     }
                 }
-                else if (warnings == 1)
+                else if (_warnings == 1)
                 {
                     if (_timeToNextSave > TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.AutoSaveInterval)) - TimeSpan.FromSeconds(3))
                     {
-                        warnings--;
+                        _warnings--;
                         SendServerMessage("The game is saving..");
                     }
                 }
                 if (_timeToNextSave > TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.AutoSaveInterval)))
                 {
                     _timeToNextSave = TimeSpan.Zero;
-                    warnings = 3;
+                    _warnings = 3;
                     SaveMaps();
                     SendServerMessage("Game Saved.");
                 }
