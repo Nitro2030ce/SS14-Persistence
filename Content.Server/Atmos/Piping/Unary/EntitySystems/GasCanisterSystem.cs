@@ -146,6 +146,7 @@ public sealed class GasCanisterSystem : SharedGasCanisterSystem
 
     private void CalculateCanisterPrice(EntityUid uid, GasCanisterComponent component, ref PriceCalculationEvent args)
     {
+        if (args.Handled) return;
         args.Price += _atmos.GetPrice(component.Air);
     }
 
