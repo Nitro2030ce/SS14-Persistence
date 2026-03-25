@@ -1,8 +1,7 @@
 - type: entity
-  id: RollingGate
+  id: MallRollingGate
   parent: BaseStructure
   name: rolling gate
-  abstract: true
   description: A rolling gate, commonly used in malls and storefronts.
   placement:
     mode: SnapgridCenter
@@ -48,7 +47,6 @@
     closeTime: 1.45
     bumpOpen: false
     clickOpen: false
-  - type: Appearance
   - type: DoorVisuals
     crushDamage:
       types:
