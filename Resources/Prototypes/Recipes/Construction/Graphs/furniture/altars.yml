@@ -366,7 +366,6 @@
           - !type:SpawnPrototype
                 prototype: d20Dice
                 amount: 1
-                doAfter: 1
           steps:
             - tool: Prying
               doAfter: 1
@@ -404,4 +403,4 @@
           - !type:EmptyAllContainers
           steps:
             - tool: Prying
-              doAFter: 1
+              doAfter: 1
