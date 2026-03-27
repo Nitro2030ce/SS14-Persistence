@@ -157,7 +157,7 @@ public sealed class GasTileFireOverlay : Overlay
 
                         var fireState = gas.FireState - 1;
                         var texture = state.frames[fireState][state.frameCounter[fireState]];
-                        var fireColor = new Color(gas.FireColorR / 255f, gas.FireColorG / 255f, gas.FireColorB / 255f);
+                        var fireColor = new Color(gas.FireColorR / 255f, gas.FireColorG / 255f, gas.FireColorB / 255f, gas.FireColorA / 255f);
                         state.drawHandle.DrawTexture(texture, index, fireColor);
                     }
                 }
