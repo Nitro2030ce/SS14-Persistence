@@ -1,8 +1,8 @@
 ﻿- type: entity
-  parent: NoticeBoard
+  parent: BaseWallmount
   id: KanbanBoard
   name: kanban board
-  description: A kanban board, used for project management and organization. It has a lot of sticky notes on it.
+  description: Used for project management and organization. It has a lot of sticky notes on it.
   components:
   - type: Sprite
     drawdepth: WallMountedItems
@@ -25,6 +25,16 @@
         - Folder
         - Document
         - Write
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Tag
+    tags:
+    - Wooden
   - type: Construction
     graph: KanbanBoard
-    node: kanbanboard
+    node: kanbanBoard

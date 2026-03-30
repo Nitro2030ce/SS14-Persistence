@@ -855,6 +855,16 @@
   - !type:TileNotBlocked
 
 - type: construction
+  id: RollingGate
+  graph: RollingGate
+  startNode: start
+  targetNode: RollingGate
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true  
+
+- type: construction
   id: Shutters
   graph: Shutters
   startNode: start
@@ -1047,6 +1057,68 @@
   graph: FenceMetal
   startNode: start
   targetNode: gate
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+#Courtroom fence
+
+- type: construction
+  id: CourtFenceWood
+  graph: CourtFenceWood
+  startNode: start
+  targetNode: straight_court
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CourtFenceWoodEnd
+  graph: CourtFenceWood
+  startNode: start
+  targetNode: end_court
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CourtFenceWoodCorner
+  graph: CourtFenceWood
+  startNode: start
+  targetNode: corner_court
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CourtFenceWoodTJunction
+  graph: CourtFenceWood
+  startNode: start
+  targetNode: tjunction_court
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CourtFenceWoodGate
+  graph: CourtFenceWood
+  startNode: start
+  targetNode: gate_court
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
