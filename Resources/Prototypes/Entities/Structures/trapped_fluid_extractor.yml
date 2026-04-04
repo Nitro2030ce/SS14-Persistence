@@ -99,6 +99,9 @@
       tags:
         - Unstackable
         - Structure
+    - type: GuideHelp
+      guides:
+      - GasMining
 
     - type: SubFloorHide
       visibleLayers:
