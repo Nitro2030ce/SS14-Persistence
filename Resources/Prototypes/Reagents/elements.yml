@@ -311,16 +311,15 @@
   metabolisms:
     Food:
       effects:
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Human, Animal ]
-    Poison:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.5
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.15
+      - !type:AdjustReagent
+        reagent: Vitamin
+        amount: 0.1
+      - !type:AdjustReagent
+        reagent: Honk
+        amount: 0.25
 
 - type: reagent
   id: Radium
