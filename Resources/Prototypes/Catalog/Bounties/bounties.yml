@@ -1,24 +1,277 @@
 - type: cargoBounty
-  id: BountyOxygen
+  id: BountyOxygenETS
   reward: 0.6
   description: bounty-description-artifact
   gasId: Oxygen
-  group: ScienceBounty
+  group: EngineeringBounty
   bountyType: PayPerGas
   entries:
   - name: Oxygen
     amount: 10000
 
 - type: cargoBounty
-  id: BountyWeldingFuel
+  id: BountyOxygen
+  reward: 0.55
+  description: bounty-description-artifact
+  gasId: Oxygen
+  group: StationBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Oxygen
+    amount: 10000
+
+- type: cargoBounty
+  id: BountyNitrogenETS
+  reward: 0.6
+  description: bounty-description-artifact
+  gasId: Nitrogen
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Nitrogen
+    amount: 10000
+
+- type: cargoBounty
+  id: BountyNitrogen
+  reward: 0.5
+  description: bounty-description-artifact
+  gasId: Nitrogen
+  group: StationBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Nitrogen
+    amount: 10000
+
+- type: cargoBounty
+  id: BountyHydrogen
+  reward: 0.75
+  description: bounty-description-artifact
+  gasId: Hydrogen
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Hydrogen
+    amount: 10000
+
+- type: cargoBounty
+  id: BountyPlasmaGas
+  reward: 0.75
+  description: bounty-description-artifact
+  gasId: Plasma
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Plasma
+    amount: 12500
+
+- type: cargoBounty
+  id: BountyPlasmaGasETS
+  reward: 0.8
+  description: bounty-description-artifact
+  gasId: Plasma
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Plasma
+    amount: 12500
+
+- type: cargoBounty
+  id: BountyChlorine
+  reward: 2.25
+  description: bounty-description-artifact
+  gasId: Chlorine
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Chlorine
+    amount: 2500
+
+- type: cargoBounty
+  id: BountyFluorine
+  reward: 2.5
+  description: bounty-description-artifact
+  gasId: Fluorine
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Fluorine
+    amount: 2500
+
+- type: cargoBounty
+  id: BountyTritium
   reward: 5
   description: bounty-description-artifact
-  reagentId: WeldingFuel
+  gasId: Tritium
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Tritium
+    amount: 2000
+
+- type: cargoBounty
+  id: BountyFrezon
+  reward: 10
+  description: bounty-description-artifact
+  gasId: Frezon
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Frezon
+    amount: 1500
+
+- type: cargoBounty
+  id: BountyMethane
+  reward: 2.8
+  description: bounty-description-artifact
+  gasId: Methane
+  group: StationBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Methane
+    amount: 3000
+
+- type: cargoBounty
+  id: BountyMethaneETS
+  reward: 3
+  description: bounty-description-artifact
+  gasId: Methane
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: Methane
+    amount: 3000
+
+- type: cargoBounty
+  id: BountyChlorineTrifluoride
+  reward: 12.5
+  description: bounty-description-artifact
+  gasId: ChlorineTrifluoride
+  group: EngineeringBounty
+  bountyType: PayPerGas
+  entries:
+  - name: ChlorineTrifluoride
+    amount: 1500
+
+- type: cargoBounty
+  id: BountyArtifactGlue
+  reward: 10
+  description: bounty-description-artifact
+  reagentId: ArtifactGlue
   group: ScienceBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Artifact Glue
+    amount: 1000
+
+- type: cargoBounty
+  id: BountyWeldingFuel
+  reward: 2.5
+  description: bounty-description-artifact
+  reagentId: WeldingFuel
+  group: StationBounty
   bountyType: PayPerReagent
   entries:
   - name: Welding Fuel
     amount: 1000
+
+- type: cargoBounty
+  id: BountyAcetone
+  reward: 4
+  description: bounty-description-artifact
+  reagentId: Acetone
+  group: StationBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Acetone
+    amount: 1000
+
+- type: cargoBounty
+  id: BountyArithrazine
+  reward: 15
+  description: bounty-description-artifact
+  reagentId: Arithrazine
+  group: StationBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Arithrazine
+    amount: 100
+
+- type: cargoBounty
+  id: BountyEpinephrine
+  reward: 10
+  description: bounty-description-artifact
+  reagentId: Epinephrine
+  group: StationBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Epinephrine
+    amount: 200
+
+- type: cargoBounty
+  id: BountyUnstableMutagen
+  reward: 30
+  description: bounty-description-artifact
+  reagentId: UnstableMutagen
+  group: ServiceBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Unstable Mutagen
+    amount: 250
+
+- type: cargoBounty
+  id: BountyAmmonia
+  reward: 5
+  description: bounty-description-artifact
+  reagentId: Ammonia
+  group: ServiceBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Ammonia
+    amount: 500
+
+- type: cargoBounty
+  id: BountyFlour
+  reward: 5
+  description: bounty-description-artifact
+  reagentId: Flour
+  group: ServiceBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Flour
+    amount: 1500
+
+- type: cargoBounty
+  id: BountyCocoaPowder
+  reward: 7.5
+  description: bounty-description-artifact
+  reagentId: CocoaPowder
+  group: ServiceBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Cocoa Powder
+    amount: 1250
+
+- type: cargoBounty
+  id: BountyFrostOil
+  reward: 10
+  description: bounty-description-artifact
+  reagentId: FrostOil
+  group: ServiceBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Frost Oil
+    amount: 1000
+
+- type: cargoBounty
+  id: BountyOpporozidone
+  reward: 50
+  description: bounty-description-artifact
+  reagentId: Opporozidone
+  group: StationBounty
+  bountyType: PayPerReagent
+  entries:
+  - name: Opporozidone
+    amount: 250
 
 - type: cargoBounty
   id: BountyArtifactMany
