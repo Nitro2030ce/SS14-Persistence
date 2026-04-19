@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, pda-cluwne made by brainfood1183 (github) ss14 | CMO, HOS, QM, and RD by @SilverSS14, exec and CE by FrostRusty (GitHub)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "id_overlay"
+        },
+        {
+            "name": "id_overlay_wide"
+        },
+        {
+            "name": "equipped-BELT",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "insert_overlay"
+        },
+        {
+            "name": "light_overlay"
+        },
+        {
+            "name": "light_overlay_wide"
+        },
+            "name": "pda-exec"
+        },
+        {
+            "name": "pda-ce"
+        },
+        {
+            "name": "pda-cmo"
+        },
+        {
+            "name": "pda-hos"
+        },
+        {
+            "name": "pda-qm"
+        },
+        {
+            "name": "pda-rd"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by FrostRusty (GitHub)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "paper_stamp-exec"
+    },
+    {
+      "name": "paper_stamp-ce"
+    },
+    {
+      "name": "paper_stamp-cmo"
+    },
+    {
+      "name": "paper_stamp-hos"
+    },
+    {
+      "name": "paper_stamp-qm"
+    },
+    {
+      "name": "paper_stamp-rd"
+    }
+  ]
+}
