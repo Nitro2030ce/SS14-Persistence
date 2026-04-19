@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, pda-cluwne made by brainfood1183 (github) ss14 | CMO, HOS, QM, and RD by @SilverSS14, exec and CE by FrostRusty (GitHub)",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, pda-cluwne made by brainfood1183 (github) ss14 |",
     "size": {
         "x": 32,
         "y": 32
@@ -34,22 +34,23 @@
         {
             "name": "light_overlay_wide"
         },
-            "name": "pda-exec"
+	{
+            "name": "pda-exec-SOL"
         },
         {
-            "name": "pda-ce"
+            "name": "pda-ce-SOL"
         },
         {
-            "name": "pda-cmo"
+            "name": "pda-cmo-SOL"
         },
         {
-            "name": "pda-hos"
+            "name": "pda-hos-SOL"
         },
         {
-            "name": "pda-qm"
+            "name": "pda-qm-SOL"
         },
         {
-            "name": "pda-rd"
+            "name": "pda-rd-SOL"
         }
     ]
 }
