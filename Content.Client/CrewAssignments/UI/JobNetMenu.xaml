@@ -47,30 +47,63 @@
                     <Control MinHeight ="30" />
                 </BoxContainer>
             </BoxContainer>
+            <BoxContainer Orientation="Vertical" Access="Public">
+                <TabContainer Name="HistoryTabContainer"  VerticalExpand="True">
+                    <ScrollContainer Name="Achievements" VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                        <BoxContainer Orientation="Vertical" Access="Public">
+                            <Label Text="Ongoing:" Margin="10 10 10 0"
+                                     StyleClasses="LabelKeyText" />
+                            <BoxContainer Name="CurrentObjectives" Orientation="Vertical" Access="Public">
+
+                            </BoxContainer>
+                            <Label Text="Completed:" Margin="10 10 10 0"
+                                     StyleClasses="LabelKeyText" />
+                            <BoxContainer Name="CompletedObjectives" Orientation="Vertical" Access="Public">
+
+                            </BoxContainer>
+                        </BoxContainer>
+
+                    </ScrollContainer>
+                    <ScrollContainer Name="Codex" VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                        <BoxContainer Orientation="Vertical">
+                            <RichTextLabel Name="UnlockedNumberLabel" Access="Public"></RichTextLabel>
+                            <Control MinHeight="20"></Control>
+                            <BoxContainer Orientation="Vertical" Access="Public" Name="CodexContainer">
+                            </BoxContainer>
+                        </BoxContainer>
+
+                    </ScrollContainer>
+                </TabContainer>
+            </BoxContainer>
+
             <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
-                <BoxContainer Orientation="Vertical" Access="Public">
-                    <Label Text="Ongoing:" Margin="10 10 10 0"
-                             StyleClasses="LabelKeyText" />
-                    <BoxContainer Name="CurrentObjectives" Orientation="Vertical" Access="Public">
-
+                <BoxContainer Orientation="Vertical" Margin="15">
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="ZENITH SECTOR" Margin="0 0 10 0"
+                           StyleClasses="LabelKeyText" />
                     </BoxContainer>
-                    <Label Text="Completed:" Margin="10 10 10 0"
-                             StyleClasses="LabelKeyText" />
-                    <BoxContainer Name="CompletedObjectives" Orientation="Vertical" Access="Public">
-
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="Sector Development:" Margin="0 0 10 0"
+                           StyleClasses="LabelKeyText" />
+                        <Label Name="SectorDevelopmentLabel" Text="10" Margin="0 0 10 0" />
                     </BoxContainer>
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="Sector Chaos:" Margin="0 0 10 0"
+                           StyleClasses="LabelKeyText" />
+                        <Label Name="SectorChaosLabel" Text="100/1500" Margin="0 0 10 0" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="Sector Status:" Margin="0 0 10 0"
+                           StyleClasses="LabelKeyText" />
+                    </BoxContainer>
+                    <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True" MinHeight="30" Margin="10 10 10 0">
+                        <BoxContainer Orientation="Vertical">
+                        </BoxContainer>
+                    </PanelContainer>
                 </BoxContainer>
 
             </ScrollContainer>
-            <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
-                <BoxContainer Orientation="Vertical">
-                    <RichTextLabel Name="UnlockedNumberLabel" Access="Public"></RichTextLabel>
-                    <Control MinHeight="20"></Control>
-                    <BoxContainer Orientation="Vertical" Access="Public" Name="CodexContainer">
-                    </BoxContainer>
-                </BoxContainer>
-
-            </ScrollContainer>
+         
             <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
                 <BoxContainer Orientation="Vertical" Margin="15">
                     <Control MinHeight="5"/>

@@ -22,6 +22,21 @@ public abstract partial class SharedJobNetSystem : EntitySystem
 
     public virtual void ReagentObjectiveComplete(JobNetComponent component, ProtoId<PrecursorObjectivePrototype> objective)
     {
+
+    }
+
+    public void JitterObjectiveTryComplete(JobNetComponent component)
+    {
+        foreach (var objective in component.PrecursorObjectives.ToList())
+        {
+            if (_proto.TryIndex(objective, out PrecursorObjectivePrototype? proto) && proto != null)
+            {
+                if (proto.TargetStatus == StatusEffectType.Jitter)
+                {
+                    ReagentObjectiveComplete(component, objective);
+                }
+            }
+        }
     }
     public void ReagentObjectiveTryComplete(JobNetComponent component, Entity<StatusEffectComponent?> ent)
     {
@@ -44,16 +59,6 @@ public abstract partial class SharedJobNetSystem : EntitySystem
                 if (proto.TargetStatus == StatusEffectType.Hallucinate)
                 {
                     if (Name(ent.Owner) == "hallucinations")
-                    {
-                        if (ent.Comp.EndEffectTime != null && (ent.Comp.EndEffectTime.Value - _timing.CurTime).TotalSeconds >= proto.RequiredAmount)
-                        {
-                            ReagentObjectiveComplete(component, objective);
-                        }
-                    }
-                }
-                if (proto.TargetStatus == StatusEffectType.Jitter)
-                {
-                    if (Name(ent.Owner) == "reagent speed")
                     {
                         if (ent.Comp.EndEffectTime != null && (ent.Comp.EndEffectTime.Value - _timing.CurTime).TotalSeconds >= proto.RequiredAmount)
                         {

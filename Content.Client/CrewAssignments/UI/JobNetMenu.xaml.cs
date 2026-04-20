@@ -39,8 +39,8 @@ public sealed partial class JobNetMenu : DefaultWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         MasterTabContainer.SetTabTitle(0, "Job Network");
-        MasterTabContainer.SetTabTitle(1, "Historic Achievements");
-        MasterTabContainer.SetTabTitle(2, "Threshold Codex");
+        MasterTabContainer.SetTabTitle(1, "History");
+        MasterTabContainer.SetTabTitle(2, "Sector");
         MasterTabContainer.SetTabTitle(3, "Upgrades");
         MasterTabContainer.SetTabTitle(4, "Precursor");
     }
