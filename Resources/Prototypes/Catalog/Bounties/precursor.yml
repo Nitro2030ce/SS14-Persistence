@@ -1,0 +1,23 @@
+- type: cargoBounty
+  id: BountyPrecursorSpaceDrugs
+  reward: 2
+  reagentId: SpaceDrugs
+  group: PrecursorBounty
+  bountyType: PayPerReagent
+  successXP: -300
+  idPrefix: PREC-
+  entries:
+  - name: Liquid Space Mirage (In Tank)
+    amount: 250
+
+- type: cargoBounty
+  id: BountyPrecursorSpaceDrugs
+  reward: 3
+  reagentId: Stimulants
+  group: PrecursorBounty
+  bountyType: PayPerReagent
+  successXP: -300
+  idPrefix: PREC-
+  entries:
+  - name: Liquid Hyperzine (In Tank)
+    amount: 175

@@ -43,3 +43,8 @@
 - type: cargoBountyGroup
   id: SalvageJobTier3
   name: Salvage 3
+
+- type: cargoBountyGroup
+  id: PrecursorBounty
+  name: Dealer
+

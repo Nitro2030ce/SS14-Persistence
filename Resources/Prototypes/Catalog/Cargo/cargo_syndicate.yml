@@ -14,7 +14,7 @@
     sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
     state: e_sword
   product: EnergyDaggerBox
-  cost: 7500
+  cost: 9500
   category: cargoproduct-category-name-syndicate
   group: syndicatemarket2
 
@@ -34,6 +34,6 @@
     sprite: Objects/Weapons/Melee/e_shield.rsi
     state: eshield-on
   product: EnergyShield
-  cost: 10000
+  cost: 5500
   category: cargoproduct-category-name-syndicate
   group: syndicatemarket

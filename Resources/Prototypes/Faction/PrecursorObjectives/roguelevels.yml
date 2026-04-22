@@ -8,20 +8,24 @@
   name: Associate
   next: RogueLevel3
   cost: 500
+  itemLevel: 1
 
 - type: rogueLevel
   id: RogueLevel3
   name: Soldier
   next: RogueLevel4
   cost: 2000
+  itemLevel: 2
 
 - type: rogueLevel
   id: RogueLevel4
   name: Captain
   next: RogueLevel5
   cost: 10000
+  itemLevel: 3
 
 - type: rogueLevel
   id: RogueLevel5
   name: Boss
   cost: 50000
+  itemLevel: 4
