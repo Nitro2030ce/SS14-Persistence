@@ -478,8 +478,6 @@
   packetPrototype: TowercapSeeds
   productPrototypes:
     - Log
-  mutationPrototypes:
-    - steelcap
   lifespan: 80
   maturation: 15
   ligneous: true
@@ -504,8 +502,8 @@
   lifespan: 80
   maturation: 15
   ligneous: true
-  production: 3
-  yield: 3
+  production: 1
+  yield: 1
   potency: 1
   growthStages: 3
   waterConsumption: 0.60
@@ -1338,8 +1336,6 @@
   packetPrototype: GalaxythistleSeeds
   productPrototypes:
     - FoodGalaxythistle
-  mutationPrototypes:
-    - glasstle
   lifespan: 25
   maturation: 10
   production: 3
@@ -1365,7 +1361,7 @@
   lifespan: 25
   maturation: 10
   production: 3
-  yield: 3
+  yield: 1
   potency: 10
   growthStages: 3
   waterConsumption: 0.5

@@ -170,4 +170,17 @@
       tags:
       - Beer
   bountyType: PayPer
-  group: ServiceBounty
+  group: TrivialBounty
+
+  - type: cargoBounty
+  id: BountyCardboardBox
+  reward: 500
+  description: bounty-description-cardboard-box
+  entries:
+  - name: bounty-item-cardboard-box
+    amount: 20
+    whitelist:
+      tags:
+      - BoxCardboard
+  bountyType: PayPer
+  group: TrivialBounty
