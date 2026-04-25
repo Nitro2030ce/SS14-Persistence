@@ -314,3 +314,5 @@ Resources/MapImages
 .github/agents/Diagnoser.agent.md
 .github/agents/Populator.agent.md
 build_output.txt
+runserver.sh
+Resources/Prototypes/Maps/wilds.yml

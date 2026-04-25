@@ -1281,6 +1281,32 @@
     - !type:TileNotBlocked
 
 - type: construction
+  id: AirlockHatch
+  graph: AirlockHatch
+  name: construction-recipe-airlock-hatch
+  startNode: start
+  targetNode: airlock
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: AirlockHatchMaintenance
+  graph: AirlockHatchMaintenance
+  name: construction-recipe-airlock-hatch-maintenance
+  startNode: start
+  targetNode: airlock
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: AirlockExternal
   graph: AirlockExternal
   startNode: start
@@ -1410,10 +1436,58 @@
     - !type:TileNotBlocked
 
 - type: construction
+  id: PlasmaWindoor
+  graph: Windoor
+  startNode: start
+  targetNode: pwindoor
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: UraniumWindoor
+  graph: Windoor
+  startNode: start
+  targetNode: uwindoor
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: SecureWindoor
   graph: Windoor
   startNode: start
   targetNode: windoorSecure
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: SecureWindoorPlasma
+  graph: Windoor
+  startNode: start
+  targetNode: pwindoorSecure
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: SecureWindoorUranium
+  graph: Windoor
+  startNode: start
+  targetNode: uwindoorSecure
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
@@ -1494,6 +1568,33 @@
   graph: LightFixture
   startNode: start
   targetNode: strobeLight
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: LightStrobeAlarmFixture
+  graph: LightFixture
+  name: construction-recipe-strobe-alarm
+  startNode: start
+  targetNode: strobeLightAlarm
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: LightServiceFixture
+  graph: LightFixture
+  startNode: start
+  targetNode: janitorialServiceLight
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter

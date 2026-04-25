@@ -1,11 +1,11 @@
 alert-level-announcement = Attention! Station alert level is now {$name}! {$announcement}
 
 alert-level-unknown = Unknown.
-alert-level-unknown-instructions = Unknown.
+alert-level-unknown-instructions = Pay attention, otherwise continue as usual.
 
 alert-level-green = Green
 alert-level-green-announcement = It is now safe to return to your workplaces.
-alert-level-green-instructions = Do your job.
+alert-level-green-instructions = Do your job, or any other activities you have planned.
 
 alert-level-blue = Blue
 alert-level-blue-announcement = There is a confirmed threat to the station. Security should perform random checks. Crewmembers are advised to be vigilant and report suspicious activity to security.

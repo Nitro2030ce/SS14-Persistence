@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   save: true
   parent: [ BaseSimpleMob, BaseMobAnimal, MobCombat ]
   id: BaseMobArgocyte

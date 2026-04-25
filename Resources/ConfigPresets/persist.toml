@@ -16,7 +16,7 @@ tags = "lang:en,region:am_n_w,rp:high"
 rules_file = "PersistRuleset"
 
 [ooc]
-enable_during_round = false
+enable_during_round = true
 
 [looc]
 enabled_dead = true
