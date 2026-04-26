@@ -172,7 +172,7 @@
   bountyType: PayPer
   group: TrivialBounty
 
-  - type: cargoBounty
+- type: cargoBounty
   id: BountyCardboardBox
   reward: 500
   description: bounty-description-cardboard-box
