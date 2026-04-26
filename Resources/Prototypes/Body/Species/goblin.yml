@@ -89,9 +89,6 @@
   id: MobGoblin
   name: Urist McGoblin
   components:
-  - type: Thieving
-    stripTimeReduction: -4.5
-    stealthy: true
   - type: Damageable
     damageModifierSet: Goblin
   - type: MeleeWeapon
