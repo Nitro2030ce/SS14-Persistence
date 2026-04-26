@@ -59,3 +59,10 @@ lathe-category-gloves = Gloves
 lathe-category-belts = Belts
 lathe-category-glasses = Glasses
 lathe-category-masks = Masks
+
+# Food Replicator
+lathe-category-drinks = Drinks
+lathe-category-snacks = Snacks
+lathe-category-treats = Treats
+lathe-category-juice = Juice
+lathe-category-alcohol = Alcohol

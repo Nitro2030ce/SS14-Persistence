@@ -366,6 +366,11 @@
   result: FatExtractorMachineCircuitboard
   unlockUses: 4
 
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: FoodReplicatorMachineCircuitboard
+  result: FoodReplicatorMachineCircuitboard
+
 ## Supply
 
 - type: latheRecipe

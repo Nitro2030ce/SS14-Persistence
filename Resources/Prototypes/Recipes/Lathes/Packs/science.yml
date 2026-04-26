@@ -86,6 +86,7 @@
   - RoboticsConsoleCircuitboard
   - ResearchComputerCircuitboard
   - ResearchAndDevelopmentServerMachineCircuitboard
+  - FoodReplicatorMachineCircuitboard
 
 - type: latheRecipePack
   id: CameraBoards
