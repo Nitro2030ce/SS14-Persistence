@@ -2,11 +2,13 @@
 # Related docs https://docs.spacestation14.com/en/general-development/tips/config-file-reference.html
 
 [game]
-hostname = "[NRP] Persistence Test Server"
-desc = "Don't mind me, just using the base ConfigPreset!"
+hostname = "[NRP] Wilds Sector DEBUG Server"
+desc = "Join at your own risk!"
 defaultpreset = "persist"
 soft_max_players = 30
 autosaveinterval = 60
+[net]
+port = 1213
 
 [hub]
 tags = "rp:none"
