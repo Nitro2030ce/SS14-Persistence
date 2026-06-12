@@ -101,7 +101,7 @@ bounty-item-ripleyrightarm = Ripley right arm
 bounty-item-ripleyleftarm = Ripley left arm
 bounty-item-ripleycentral =  Ripley central control module
 bounty-item-ripleyperipheral = Ripley peripheral control module
-bounty-item-powercell = Power cell
+bounty-item-powercell = Medium Powercell
 bounty-item-anomalyscanner = Anomaly scanner
 bounty-item-anomalylocator = Anomaly locator
 bounty-item-apeboard = A.P.E. machine board
@@ -133,6 +133,8 @@ bounty-item-flour = Flour
 bounty-item-cocoapowder = Cocoa Powder
 bounty-item-frostoil = Frost Oil
 bounty-item-opporozidone = Opporozidone
+bounty-item-liquid-desoxyephedrine = Liquid Desoxyephedrine
+bounty-item-liquid-space-mirage = Liquid Space Mirage
 
 bounty-description-artifact = NanoTrasen is in some hot water for stealing artifacts from non-spacefaring planets. Return one and we'll compensate you for it.
 bounty-description-baseball-bat = Baseball fever is going on at CentComm! Be a dear and ship them some baseball bats, so that management can live out their childhood dream.

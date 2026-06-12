@@ -28,6 +28,7 @@
   - WetFloorSign
   - WireBrush
   - BSPAnchorKey
+  - PrecursorExtractor
   - KitchenKnife
   - RollingPin
   - BarberScissors
@@ -45,10 +46,13 @@
   - SodaDispenserMachineCircuitboard
   - SmartFridgeCircuitboard
   - IdPrinterCircuitboard
+  - MessageBoardCircuitboard
+  - StationModComputerCircuitboard
   - BlockGameArcadeComputerCircuitboard
   - SpaceVillainArcadeComputerCircuitboard
   - InvoicePrinterCircuitboard
   - IDComputerCircuitboard
+  - MixingMachineCircuitboard
 
 - type: latheRecipePack
   id: ReligionStatic
@@ -90,3 +94,4 @@
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
   - ComputerTelevisionCircuitboard
+  - ButcheringMachineCircuitboard
