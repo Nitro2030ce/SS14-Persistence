@@ -141,6 +141,7 @@
     - ElectronicsStatic
     - CassetteTape
     - ReligionStatic
+    - HydroponicsStatic
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
