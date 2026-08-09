@@ -143,8 +143,10 @@
       deviceNetId: Wireless
       receiveFrequencyId: SurveillanceCamera
       transmitFrequencyId: SurveillanceCamera
+    # Persistence 14 - Adjusts range to 10km to make Televisions less useless
     - type: WirelessNetworkConnection
-      range: 200
+      range: 10000
+    # Persistence 14 - End
     - type: DeviceNetworkRequiresPower
     - type: UserInterface
       interfaces:
@@ -205,8 +207,9 @@
     deviceNetId: Wireless
     receiveFrequencyId: Mothership
     transmitFrequencyId: Mothership
-  - type: WirelessNetworkConnection
-    range: 2000 # longer range to get xenoborgs even when the mothership is far away
+   # Persistence 14 - No longer required, not like we have xenoborgs yet anyways
+   #- type: WirelessNetworkConnection
+   # range: 2000 # longer range to get xenoborgs even when the mothership is far away
   - type: SurveillanceCameraRouter
     subnetFrequency: Xenoborg
   - type: Machine

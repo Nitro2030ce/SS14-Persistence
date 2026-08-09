@@ -7,8 +7,10 @@
   components:
     - type: InteractionOutline
     - type: Eye
+    # Persistence 14, required change to correlate with the increased server range
     - type: WirelessNetworkConnection
-      range: 200
+      range: 10000
+    # Persistence 14 - End
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: Metallic

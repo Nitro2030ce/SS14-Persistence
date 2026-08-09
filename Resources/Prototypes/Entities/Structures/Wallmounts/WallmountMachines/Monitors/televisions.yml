@@ -19,8 +19,10 @@
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCamera
     transmitFrequencyId: SurveillanceCamera
+  # Persistence 14, required change to correlate with the increased server range
   - type: WirelessNetworkConnection
-    range: 200
+    range: 10000
+  # Persistence 14 - End
   - type: DeviceNetworkRequiresPower
   - type: Speech
   - type: SurveillanceCameraSpeaker

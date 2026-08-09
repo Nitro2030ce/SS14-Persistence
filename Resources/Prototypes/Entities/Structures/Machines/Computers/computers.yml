@@ -1547,8 +1547,10 @@
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCamera
     transmitFrequencyId: SurveillanceCamera
+    # Persistence 14 - Adjusts range to 10km to make Televisions less useless
   - type: WirelessNetworkConnection
-    range: 200
+    range: 10000
+    # Persistence 14 - End
   - type: DeviceNetworkRequiresPower
   - type: Speech
     speechVerb: Robotic
@@ -1576,8 +1578,10 @@
     deviceNetId: Wireless
     receiveFrequencyId: Mothership
     transmitFrequencyId: Mothership
+  # Persistence 14 - Probably not needed, but i did it anyways
   - type: WirelessNetworkConnection
-    range: 2000
+    range: 10000
+  # Persistence 14 - End
 
 - type: entity
   id: ComputerPalletConsole
