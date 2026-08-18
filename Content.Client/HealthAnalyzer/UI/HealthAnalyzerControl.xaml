@@ -44,7 +44,7 @@
 
     <GridContainer
         Name="BloodstreamContainer"
-        Margin="0 0 0 5"
+        Margin="5 0 0 5"
         Columns="2">
     </GridContainer>
     <!-- End Persistence -->
